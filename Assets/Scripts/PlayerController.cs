@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 8.0f;
     public float jumpForce = 12.0f;    
     public float distance;
-    private float movimientoInput;
+    public float movimientoInput;
     private float gravedad;
 
     private bool isGrounded;
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
     {
         movimientoInput = Input.GetAxisRaw("Horizontal");
 
-        if (GameManager.instance.GetParedL() && movimientoInput < 0 )  //Si está chocando con la paredL no funcione el inpput L
+        if (GameManager.instance.GetParedL() && movimientoInput < 0 )  //Si está chocando con la paredL no funcione el input L
             movimientoInput = 0;
 
         else if (GameManager.instance.GetParedR() && movimientoInput > 0 )
