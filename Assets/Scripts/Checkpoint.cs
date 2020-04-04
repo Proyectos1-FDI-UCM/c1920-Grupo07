@@ -12,13 +12,13 @@ public class Checkpoint : MonoBehaviour
         anim = GetComponent<Animator>();
     }
     private void OnTriggerEnter2D(Collider2D other)
-    {        
-        if (other.GetComponent<PlayerController>() != null &&!pasado)
+    {
+        if (other.GetComponent<PlayerController>() != null && !pasado)
         {
             pasado = true;
             other.GetComponent<CheckpointManager>().Pasapor(this.transform);
             anim.SetBool("Check", true);
-            GameManager.instance.SetCapsulasRest(6);
+            GameManager.instance.SetCapsulasRest(GameManager.instance.GetCapsulasG());
         }
     }
 }

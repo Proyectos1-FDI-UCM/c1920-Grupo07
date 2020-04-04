@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Text coinsText;    
+    public Text coinsText;
     public Image[] capsulasLlenas;
     public Image[] partesIngrdientes;
     public Image barraTiempo;
@@ -14,6 +14,10 @@ public class UIManager : MonoBehaviour
     {
         GameManager.instance.SetUIManager(this);
         UpdateMonedas(0);
+        capsulasLlenas[6].enabled = false;
+        capsulasLlenas[7].enabled = false;
+        capsulasLlenas[8].enabled = false;   //Para las vacías
+        capsulasLlenas[9].enabled = false;
     }
 
     public void UpdateMonedas(int monedas) //Actualizar puntos
@@ -23,19 +27,28 @@ public class UIManager : MonoBehaviour
 
     public void UpdateGravedad(int capsulasG)
     {
-        int c = capsulasG-1;
+        int c = capsulasG - 1;
 
-        if(capsulasG < 6)
+        if (capsulasG < GameManager.instance.GetCapsulasG())
             capsulasLlenas[capsulasG].enabled = false;
-        else if( capsulasG == 6)
+        else if (capsulasG == GameManager.instance.GetCapsulasG())
         {
             for (int i = 0; i <= c; i++)
-                capsulasLlenas[c-i].enabled = true;
+                capsulasLlenas[c - i].enabled = true;
         }
     }
 
+    public void TiendaGravedad()
+    {
+        capsulasLlenas[6].enabled = true;
+        capsulasLlenas[7].enabled = true;
+        capsulasLlenas[8].enabled = true;   //Para las vacías
+        capsulasLlenas[9].enabled = true;
+
+    }
+
     public void UpdateTiempo(int seg)
-    {               
+    {
         barraTiempo.fillAmount = seg * 0.2f;
     }
 

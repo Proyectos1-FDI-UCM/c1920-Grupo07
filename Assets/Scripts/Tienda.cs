@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Tienda : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void CompraG()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameManager.instance.TiendaGravedad();
     }
 }
