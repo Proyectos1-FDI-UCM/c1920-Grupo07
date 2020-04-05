@@ -21,7 +21,7 @@ public class CheckpointManager : MonoBehaviour
     {
         GameManager.instance.SetCapsulasRest(GameManager.instance.GetCapsulasG() + 1); //Poner una cápsula de más poruq econ la sig línea se resta una
         GameManager.instance.SetGravedad(false);
-        GameManager.instance.SetSegs(5);
+        GameManager.instance.GetSegs();
         GameManager.instance.SetReapareceEnemigo(true);
         transform.position = ultCheckpoint.position;
     }
@@ -29,7 +29,7 @@ public class CheckpointManager : MonoBehaviour
     {
         GameManager.instance.SetCapsulasRest(GameManager.instance.GetCapsulasG() + 1); //Poner una cápsula de más poruq econ la sig línea se resta una
         GameManager.instance.SetGravedad(false);
-        GameManager.instance.SetSegs(5);
+        GameManager.instance.GetSegs();
         GameManager.instance.ReiniciaMonedas();
         GameManager.instance.SetReapareceEnemigo(true);
         GameManager.instance.AnulaMejoras();

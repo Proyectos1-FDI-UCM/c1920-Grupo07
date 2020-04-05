@@ -44,16 +44,26 @@ public class UIManager : MonoBehaviour
         capsulasLlenas[7].enabled = true;
         capsulasLlenas[8].enabled = true;   //Para las vacías
         capsulasLlenas[9].enabled = true;
-
     }
 
-    public void UpdateTiempo(int seg)
+    public void UpdateTiempo(int seg, bool tiendaT)
     {
-        barraTiempo.fillAmount = seg * 0.2f;
+        if (tiendaT)
+        {
+            barraTiempo.fillAmount = seg * 0.14f;
+            Debug.Log(barraTiempo.fillAmount);
+        }
+
+        else
+        {
+            barraTiempo.fillAmount = seg * 0.2f;    // 1/seg
+            Debug.Log(barraTiempo.fillAmount);
+        }
+            
     }
 
     public void UpdateIngredientes(int numero)
     {
-        partesIngrdientes[numero].enabled = false;
+        partesIngrdientes[numero].enabled = false;        
     }
 }

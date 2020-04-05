@@ -9,11 +9,11 @@ public class GameManager : MonoBehaviour
     UIManager theUIManager;
 
     private int partesIngrediente = 0;
-    private int segs = 5;
+    public int segs = 5;
     public int monedas = 0;
     private int capsulasG = 6;
     public int mejoraG = 0;
-    private int mejoraT = 0;
+    public int mejoraT = 0;
 
 
     private bool gravedad = false;
@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
     private bool escalera = false;
     private bool reapareceEne = false;
     public bool tiendaG = false;
-    private bool tiendaT = false;
+    public bool tiendaT = false;
+    public bool tiendaFisica = false;
 
     private bool suelo;
     private bool paredL;
@@ -82,15 +83,18 @@ public class GameManager : MonoBehaviour
             theUIManager.UpdateMonedas(monedas);
     }
 
-    public void SetSegs(int segundos)
+    public int GetSegs()
     {
-        segs = segundos;
-        theUIManager.UpdateTiempo(segs);
+        if (!tiendaT)
+            return 5;
+        
+        else
+            return 7;
     }
 
     public void CambioTiempo()
     {
-        if (segs == 5)
+        if (segs == GetSegs())
         {
             tiempo = !tiempo;      //Invierte tiempo y lo vuelve a invertir después de 5 segundos                       
             InvokeRepeating("Crono", 0f, 1f);
@@ -100,7 +104,7 @@ public class GameManager : MonoBehaviour
     public void Crono()
     {
         segs -= 1;
-        theUIManager.UpdateTiempo(segs);
+        theUIManager.UpdateTiempo(segs,tiendaT);
         if (segs == 0)
         {
             tiempo = false;
@@ -111,12 +115,12 @@ public class GameManager : MonoBehaviour
 
     public void RecuperarTiempo()
     {
-        if (segs != 5)
+        if (segs != 7)
         {
             segs += 1;
-            theUIManager.UpdateTiempo(segs);
+            theUIManager.UpdateTiempo(segs,tiendaT);
         }
-        if (segs == 5)
+        if (segs == 7)
             CancelInvoke();
     }
 
@@ -170,9 +174,7 @@ public class GameManager : MonoBehaviour
             escalera = false;
 
         }
-
         Time.timeScale = 1;
-
     }
 
     public void RecogeIngrediente(int nIngr)
@@ -202,6 +204,7 @@ public class GameManager : MonoBehaviour
         theUIManager = uim;
         theUIManager.UpdateMonedas(monedas);
         theUIManager.UpdateGravedad(capsulasG);
+        theUIManager.UpdateTiempo(GetSegs(),tiendaT);
     }
 
     public void SetReapareceEnemigo(bool _reapareceEne)
@@ -214,30 +217,43 @@ public class GameManager : MonoBehaviour
         return reapareceEne;
     }
 
-
-
-    public void TiendaGravedad()
+    public int TiendaGravedad()
     {
-        if (monedas >= 1)
+        if (monedas >= 1 && mejoraG != 3)
         {
-            Debug.Log("FFFFFFFFFF");
             mejoraG += 1;
             monedas -= 1;
             if (theUIManager != null)
-                theUIManager.UpdateMonedas(monedas);
+                theUIManager.UpdateMonedas(monedas);           
         }
         if (mejoraG == 3)
         {
             theUIManager.TiendaGravedad();
             capsulasG = 8;
+            if (theUIManager != null)
+                theUIManager.UpdateGravedad(capsulasG);
             tiendaG = true;
         }
-
+        return mejoraG;
     }
 
-    public void TiendaTiempo()
+    public int TiendaTiempo()
     {
-
+        if (monedas >= 1 && mejoraT != 3)
+        {
+            mejoraT += 1;
+            monedas -= 1;
+            if (theUIManager != null)
+                theUIManager.UpdateMonedas(monedas);
+        }
+        if (mejoraT == 3)
+        {
+            segs = 7;
+            tiendaT = true;
+            theUIManager.UpdateTiempo(GetSegs(),tiendaT);
+            tiendaT = true;
+        }
+        return mejoraT;
     }
 
     public int GetCapsulasG()
@@ -251,5 +267,19 @@ public class GameManager : MonoBehaviour
     public void AnulaMejoras()
     {
         tiendaG = false;
+        tiendaT = false;
+        segs = 5;
+        mejoraG = 0;
+        mejoraT = 0;
+    }
+
+    public void SetTiendaFisica(bool tiendaF)
+    {
+        tiendaFisica = tiendaF;
+    }
+
+    public bool GetTiendaFisica()
+    {
+        return tiendaFisica;
     }
 }
