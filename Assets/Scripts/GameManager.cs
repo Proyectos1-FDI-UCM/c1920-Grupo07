@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
         
         else
             return 7;
+        
     }
 
     public void CambioTiempo()
@@ -115,12 +116,12 @@ public class GameManager : MonoBehaviour
 
     public void RecuperarTiempo()
     {
-        if (segs != 7)
+        if (segs != GetSegs())
         {
             segs += 1;
             theUIManager.UpdateTiempo(segs,tiendaT);
         }
-        if (segs == 7)
+        if (segs == GetSegs())
             CancelInvoke();
     }
 
