@@ -182,7 +182,12 @@ public class GameManager : MonoBehaviour
     {
         partesIngrediente++;
         theUIManager.UpdateIngredientes(nIngr);
-        Levelfinished();
+        
+    }
+
+    public bool ActivaPortal()
+    {
+        return (partesIngrediente == 4 | partesIngrediente == 8 || partesIngrediente == 12 || partesIngrediente == 16);
     }
 
     public void Levelfinished()

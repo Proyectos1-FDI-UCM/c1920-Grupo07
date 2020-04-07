@@ -17,6 +17,7 @@ public class ReapareceEne : MonoBehaviour
     public void Reaparece()
     {
         transform.position = posIni;
+        if(rb.isKinematic!=true)//Si no es plataformas
         rb.gravityScale = gravedadIni;
     }
 
