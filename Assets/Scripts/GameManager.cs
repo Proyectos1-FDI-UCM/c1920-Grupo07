@@ -235,9 +235,7 @@ public class GameManager : MonoBehaviour
         if (mejoraG == 3)
         {
             theUIManager.TiendaGravedad();
-            capsulasG = 8;
-            if (theUIManager != null)
-                theUIManager.UpdateGravedad(capsulasG);
+            capsulasG = 8;            
             tiendaG = true;
         }
         return mejoraG;
@@ -256,8 +254,7 @@ public class GameManager : MonoBehaviour
         {
             segs = 7;
             tiendaT = true;
-            theUIManager.UpdateTiempo(GetSegs(),tiendaT);
-            tiendaT = true;
+            theUIManager.UpdateTiempo(GetSegs(),tiendaT);            
         }
         return mejoraT;
     }

@@ -40,10 +40,8 @@ public class UIManager : MonoBehaviour
 
     public void TiendaGravedad()
     {
-        capsulasLlenas[6].enabled = true;
-        capsulasLlenas[7].enabled = true;
-        capsulasLlenas[8].enabled = true;   //Para las vacías
-        capsulasLlenas[9].enabled = true;
+        for (int i = 0; i <= 9; i++)        //Hacer 10 vueltas por las dos nuevas que están vacías
+            capsulasLlenas[i].enabled = true;
     }
 
     public void UpdateTiempo(int seg, bool tiendaT)
