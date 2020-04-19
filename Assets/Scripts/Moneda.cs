@@ -8,7 +8,7 @@ public class Moneda : MonoBehaviour
     {
         if (other.GetComponent<PlayerController>() != null)
         {            
-            GameManager.instance.AddMonedas();
+            GameManager.instance.AddMonedas(1);
             Destroy(this.gameObject);
         }
     }

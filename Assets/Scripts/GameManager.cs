@@ -8,13 +8,17 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     UIManager theUIManager;
 
+
+    const int SEGS = 5;
+    const int SEGSMEJORADO = 7;
+    const int CAPS = 6;
+    const int CAPSMEJORADO = 8;
+
     private int partesIngrediente = 0;
     public int segs = 5;
     public int monedas = 0;
     private int capsulasG = 6;
-    public int mejoraG = 0;
-    public int mejoraT = 0;
-
+   
 
     private bool gravedad = false;
     private bool tiempo = false;
@@ -27,8 +31,7 @@ public class GameManager : MonoBehaviour
     private bool suelo;
     private bool paredL;
     private bool paredR;
-
-
+    
     void Awake() // Comprobar que solo hay un GameManager
     {
         if (instance == null)
@@ -38,22 +41,23 @@ public class GameManager : MonoBehaviour
         }
 
         else Destroy(this.gameObject);
-
     }
+
     public void SetSuelo(bool isGrounded)
     {
         suelo = isGrounded;
-
     }
+
     public bool GetSuelo()
     {
         return suelo;
     }
+
     public void SetParedL(bool paredL_)
     {
         paredL = paredL_;
-
     }
+
     public bool GetParedL()
     {
         return paredL;
@@ -62,20 +66,21 @@ public class GameManager : MonoBehaviour
     public void SetParedR(bool paredR_)
     {
         paredR = paredR_;
-
     }
+
     public bool GetParedR()
     {
         return paredR;
     }
 
-    public void AddMonedas()
+    public void AddMonedas(int n)
     {
-        monedas++;
+        monedas += n;
         if (theUIManager != null)
             theUIManager.UpdateMonedas(monedas);
         Debug.Log(monedas);
     }
+
     public void ReiniciaMonedas()
     {
         monedas = 0;
@@ -83,14 +88,22 @@ public class GameManager : MonoBehaviour
             theUIManager.UpdateMonedas(monedas);
     }
 
+    public int GetMonedas()
+    {
+        return monedas;
+    }
+
     public int GetSegs()
     {
         if (!tiendaT)
-            return 5;
+            return SEGS;
         
         else
-            return 7;
-        
+            return SEGSMEJORADO;        
+    }
+    public void SetSegs(int s)
+    {
+        segs = s;
     }
 
     public void CambioTiempo()
@@ -173,7 +186,6 @@ public class GameManager : MonoBehaviour
             tiempo = false;
             gravedad = false;
             escalera = false;
-
         }
         Time.timeScale = 1;
     }
@@ -181,13 +193,12 @@ public class GameManager : MonoBehaviour
     public void RecogeIngrediente(int nIngr)
     {
         partesIngrediente++;
-        theUIManager.UpdateIngredientes(nIngr);
-        
+        theUIManager.UpdateIngredientes(nIngr);        
     }
 
     public bool ActivaPortal()
     {
-        return (partesIngrediente == 4 | partesIngrediente == 8 || partesIngrediente == 12 || partesIngrediente == 16);
+        return (partesIngrediente == 4 || partesIngrediente == 8 || partesIngrediente == 12 || partesIngrediente == 16);
     }
 
     public void Levelfinished()
@@ -222,60 +233,13 @@ public class GameManager : MonoBehaviour
     {
         return reapareceEne;
     }
-
-    public int TiendaGravedad()
-    {
-        if (monedas >= 1 && mejoraG != 3)
-        {
-            mejoraG += 1;
-            monedas -= 1;
-            if (theUIManager != null)
-                theUIManager.UpdateMonedas(monedas);           
-        }
-        if (mejoraG == 3)
-        {
-            theUIManager.TiendaGravedad();
-            capsulasG = 8;            
-            tiendaG = true;
-        }
-        return mejoraG;
-    }
-
-    public int TiendaTiempo()
-    {
-        if (monedas >= 1 && mejoraT != 3)
-        {
-            mejoraT += 1;
-            monedas -= 1;
-            if (theUIManager != null)
-                theUIManager.UpdateMonedas(monedas);
-        }
-        if (mejoraT == 3)
-        {
-            segs = 7;
-            tiendaT = true;
-            theUIManager.UpdateTiempo(GetSegs(),tiendaT);            
-        }
-        return mejoraT;
-    }
-
     public int GetCapsulasG()
     {
-        if (tiendaG)
-            return 8;
+        if (!tiendaG)
+            return CAPS;
         else
-            return 6;
+            return CAPSMEJORADO;
     }
-
-    public void AnulaMejoras()
-    {
-        tiendaG = false;
-        tiendaT = false;
-        segs = 5;
-        mejoraG = 0;
-        mejoraT = 0;
-    }
-
     public void SetTiendaFisica(bool tiendaF)
     {
         tiendaFisica = tiendaF;
@@ -284,5 +248,34 @@ public class GameManager : MonoBehaviour
     public bool GetTiendaFisica()
     {
         return tiendaFisica;
+    }
+
+    public void ActualizaTienda()
+    {
+        theUIManager.TiendaGravedad();
+    }
+
+    public void UpdateTiempo()
+    {
+        theUIManager.UpdateTiempo(segs,tiendaT);
+    }
+
+    public void SetTiendaG(bool tiendaG_)
+    {
+        tiendaG = tiendaG_;
+    }
+
+    public void SetTiendaT(bool tiendaT_)
+    {
+        tiendaT = tiendaT_;
+    }
+
+    public void AnulaMejoras()
+    {
+        tiendaG = false;
+        tiendaT = false;
+        segs = SEGS;
+        /*mejoraG = 0;
+        mejoraT = 0;*/
     }
 }
