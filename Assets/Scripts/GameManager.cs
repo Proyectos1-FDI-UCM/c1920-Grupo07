@@ -187,23 +187,25 @@ public class GameManager : MonoBehaviour
 
     public bool ActivaPortal()
     {
-        return (partesIngrediente == 4 | partesIngrediente == 8 || partesIngrediente == 12 || partesIngrediente == 16);
+        return (partesIngrediente == 4);
     }
 
     public void Levelfinished()
     {
-        if (partesIngrediente == 4)
+        if (partesIngrediente == 4&& SceneManager.GetActiveScene().name=="Nivel1")
         {
             ChangeScene("Nivel2");
         }
-        else if (partesIngrediente == 8)
+        else if (partesIngrediente == 4 && SceneManager.GetActiveScene().name == "Nivel2")
         {
             ChangeScene("Nivel3");
         }
-        else if (partesIngrediente == 12)
+        else if (partesIngrediente == 4 && SceneManager.GetActiveScene().name == "Nivel3")
         {
             ChangeScene("Nivel4");
         }
+
+        partesIngrediente = 0;
     }
     public void SetUIManager(UIManager uim) // Comprobar solo un UI y actualizarlo
     {
