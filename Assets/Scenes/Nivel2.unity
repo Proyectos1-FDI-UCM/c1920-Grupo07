@@ -333,8 +333,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -6527456407965906944, guid: b5a02897f83ef46499e3e0a21776bf1e,
-    type: 3}
+  m_Sprite: {fileID: 619426846574319872, guid: b5a02897f83ef46499e3e0a21776bf1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -27872,8 +27871,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -6527456407965906944, guid: b5a02897f83ef46499e3e0a21776bf1e,
-    type: 3}
+  m_Sprite: {fileID: 619426846574319872, guid: b5a02897f83ef46499e3e0a21776bf1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28041,7 +28039,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 2406239511609747532, guid: b5a02897f83ef46499e3e0a21776bf1e,
+  m_Sprite: {fileID: -7903700213742864937, guid: b5a02897f83ef46499e3e0a21776bf1e,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -29169,7 +29167,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 23.1
+  m_fontSize: 34.1
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -29974,7 +29972,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -5985375666622007917, guid: b5a02897f83ef46499e3e0a21776bf1e,
+  m_Sprite: {fileID: -1521192242703698820, guid: b5a02897f83ef46499e3e0a21776bf1e,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -31962,7 +31960,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 2432236953936985608, guid: b5a02897f83ef46499e3e0a21776bf1e,
+  m_Sprite: {fileID: 1865175470216889779, guid: b5a02897f83ef46499e3e0a21776bf1e,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -32263,7 +32261,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6527456407965906944, guid: b5a02897f83ef46499e3e0a21776bf1e,
+      objectReference: {fileID: 619426846574319872, guid: b5a02897f83ef46499e3e0a21776bf1e,
         type: 3}
     - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
         type: 3}
@@ -32278,7 +32276,7 @@ PrefabInstance:
     - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.25
+      value: 2.125
       objectReference: {fileID: 0}
     - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
         type: 3}
@@ -32288,7 +32286,7 @@ PrefabInstance:
     - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
         type: 3}
       propertyPath: m_Size.y
-      value: 2.25
+      value: 2.125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6663e9f6d4deec40a99eb127edb4664, type: 3}
@@ -32430,7 +32428,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 2432236953936985608, guid: b5a02897f83ef46499e3e0a21776bf1e,
+  m_Sprite: {fileID: 1865175470216889779, guid: b5a02897f83ef46499e3e0a21776bf1e,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -33741,7 +33739,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 2406239511609747532, guid: b5a02897f83ef46499e3e0a21776bf1e,
+  m_Sprite: {fileID: -7903700213742864937, guid: b5a02897f83ef46499e3e0a21776bf1e,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -33984,7 +33982,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 21.4
+  m_fontSize: 30.4
   m_fontSizeBase: 29
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -34655,7 +34653,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2432236953936985608, guid: b5a02897f83ef46499e3e0a21776bf1e,
+      objectReference: {fileID: 1865175470216889779, guid: b5a02897f83ef46499e3e0a21776bf1e,
         type: 3}
     - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
         type: 3}
@@ -34665,7 +34663,7 @@ PrefabInstance:
     - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
         type: 3}
       propertyPath: m_Size.x
-      value: 2.25
+      value: 2.625
       objectReference: {fileID: 0}
     - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
         type: 3}
@@ -34675,7 +34673,7 @@ PrefabInstance:
     - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2.25
+      value: 2.625
       objectReference: {fileID: 0}
     - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
         type: 3}
@@ -35401,7 +35399,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -5985375666622007917, guid: b5a02897f83ef46499e3e0a21776bf1e,
+  m_Sprite: {fileID: -1521192242703698820, guid: b5a02897f83ef46499e3e0a21776bf1e,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -36916,7 +36914,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20.65
+  m_fontSize: 33.2
   m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -39187,7 +39185,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2406239511609747532, guid: b5a02897f83ef46499e3e0a21776bf1e,
+      objectReference: {fileID: -7903700213742864937, guid: b5a02897f83ef46499e3e0a21776bf1e,
         type: 3}
     - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
         type: 3}
@@ -39197,12 +39195,22 @@ PrefabInstance:
     - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
         type: 3}
       propertyPath: m_Size.x
-      value: 2.5
+      value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2.5
+      value: 2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.625
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6663e9f6d4deec40a99eb127edb4664, type: 3}
@@ -39548,10 +39556,26 @@ PrefabInstance:
       propertyPath: nIngr
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4779401589976945729, guid: e6663e9f6d4deec40a99eb127edb4664,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1521192242703698820, guid: b5a02897f83ef46499e3e0a21776bf1e,
+        type: 3}
     - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
         type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 2417207107017001427, guid: e6663e9f6d4deec40a99eb127edb4664,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6663e9f6d4deec40a99eb127edb4664, type: 3}

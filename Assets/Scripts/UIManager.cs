@@ -56,8 +56,7 @@ public class UIManager : MonoBehaviour
         {
             barraTiempo.fillAmount = seg * 0.2f;    // 1/seg
             Debug.Log(barraTiempo.fillAmount);
-        }
-            
+        }            
     }
 
     public void UpdateIngredientes(int numero)

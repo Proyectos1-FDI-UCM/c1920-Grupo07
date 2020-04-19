@@ -106,7 +106,7 @@ public class LoboAtaque : MonoBehaviour
         }
 
 
-          if (scriptDet.iniciar == true) Debug.Log("Iniciado");             // (No necesario) Ayuda a determinar al desarrollador la posición del detector estando dentro del juego.
+        //  if (scriptDet.iniciar == true) Debug.Log("Iniciado");             // (No necesario) Ayuda a determinar al desarrollador la posición del detector estando dentro del juego.
 
        
     }

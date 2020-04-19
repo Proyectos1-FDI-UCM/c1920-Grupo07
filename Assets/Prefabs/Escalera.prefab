@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2417207107017001427}
   - component: {fileID: 5620619114562324371}
   m_Layer: 0
-  m_Name: Liana
+  m_Name: Escalera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2587696315141140232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.47, y: 50.7, z: 0}
-  m_LocalScale: {x: 0.114584565, y: 0.114584565, z: 0.114584565}
+  m_LocalPosition: {x: -5.67, y: 43.38, z: 0}
+  m_LocalScale: {x: 0.591909, y: 0.591909, z: 0.591909}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,8 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 5629716634102655642, guid: 02a89b3cb545de04abc0d29a3e807591,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: ca468d32eb9e1db4c8b7eac14fc663fd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,14 +99,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12, y: 40}
+    oldSize: {x: 2, y: 8}
     newSize: {x: 12, y: 40}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 12, y: 40}
+  m_Size: {x: 2, y: 8}
   m_EdgeRadius: 0
 --- !u!114 &5620619114562324371
 MonoBehaviour:
