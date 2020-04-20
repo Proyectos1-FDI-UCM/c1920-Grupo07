@@ -1,10 +1,7 @@
-# c1920-Grupo07
-Título del proyecto: TimeLess
+# c1920 - Grupo 7
+## Título del proyecto: TimeLess
 
-Grupo 07
-
-
-Integrantes:
+## Integrantes:
  
 * Adrián Migueles D'Ambrosio
 * Alberto Gómez Castaño
