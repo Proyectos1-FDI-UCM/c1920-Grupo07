@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private SpriteRenderer jug;
     public ParticleSystem part;
+    public ParticleSystem part1;
 
     public float speed = 8.0f;
     public float jumpForce = 12.0f;    
@@ -96,9 +97,10 @@ public class PlayerController : MonoBehaviour
 
     private void CheckInput()
     {
+
+        Particula1();
         movimientoInput = Input.GetAxisRaw("Horizontal");
         
-
         if (GameManager.instance.GetParedL() && movimientoInput < 0 )  //Si está chocando con la paredL no funcione el input L
             movimientoInput = 0;
 
@@ -138,5 +140,34 @@ public class PlayerController : MonoBehaviour
             part.transform.position = new Vector3(part.transform.position.x, transform.position.y - 0.8f, part.transform.position.z);
         }
 
+    }
+    private void Particula1()
+    {
+        if (isWalking)
+        {
+            part1.Play();
+        }
+        if (GameManager.instance.GetGravedad() && isWalking)
+        {
+            part1.transform.position = new Vector3(part1.transform.position.x, transform.position.y + 0.8f, part1.transform.position.z);
+        }
+        if (!GameManager.instance.GetGravedad() && isWalking)
+        {
+            part1.transform.position = new Vector3(part1.transform.position.x, transform.position.y - 0.8f, part1.transform.position.z);
+        }
+
+        else if (GameManager.instance.GetParedL())
+        {
+            part1.Stop();
+        }
+        if (GameManager.instance.GetParedR())
+        {
+            part1.Stop();
+        }
+        else if (!isGrounded)
+
+        {
+            part1.Stop();
+        }
     }
 }
