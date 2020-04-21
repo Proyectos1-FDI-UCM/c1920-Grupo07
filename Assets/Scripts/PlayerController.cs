@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer jug;
+    public ParticleSystem part;
 
     public float speed = 8.0f;
     public float jumpForce = 12.0f;    
@@ -62,7 +63,8 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        ApplyMovement();        
+        ApplyMovement();
+        
     }
 
     private void CheckMovementDirection()
@@ -73,13 +75,16 @@ public class PlayerController : MonoBehaviour
 
         else if (movimientoInput > 0)             
             jug.flipX = false;
-                
+        
+
 
         if (rb.velocity.x != 0)         //Si esta moviendose o no poner anim idle
             isWalking = true;
 
+
         else
             isWalking = false;
+        
     }
 
     private void UpdateAnimations()
@@ -92,6 +97,7 @@ public class PlayerController : MonoBehaviour
     private void CheckInput()
     {
         movimientoInput = Input.GetAxisRaw("Horizontal");
+        
 
         if (GameManager.instance.GetParedL() && movimientoInput < 0 )  //Si está chocando con la paredL no funcione el input L
             movimientoInput = 0;
@@ -110,11 +116,27 @@ public class PlayerController : MonoBehaviour
 
         else if (isGrounded && GameManager.instance.GetGravedad() && !GameManager.instance.GetEscalera())  //Salto con gravedad activada
             rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
+        Particula();
     }    
 
     private void ApplyMovement()
     {
         rb.velocity = new Vector2 (speed * movimientoInput, rb.velocity.y);
+        
     }
-    
+    private void Particula()
+    {
+        if (isGrounded)
+            part.Play();
+
+        if(GameManager.instance.GetGravedad()&& isGrounded)
+        {
+            part.transform.position = new Vector3(part.transform.position.x, transform.position.y + 0.6f, part.transform.position.z);
+        }
+        if (!GameManager.instance.GetGravedad() && isGrounded)
+        {
+            part.transform.position = new Vector3(part.transform.position.x, transform.position.y - 0.8f, part.transform.position.z);
+        }
+
+    }
 }
