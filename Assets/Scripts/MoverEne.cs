@@ -59,7 +59,7 @@ public class MoverEne : MonoBehaviour
         }
         else
         {
-            ene.flipY = false;
+            ene.flipY = true;
         }
         if (transform.position.x > pos + dist)  //Controlar que no se pase de la distancia
         {

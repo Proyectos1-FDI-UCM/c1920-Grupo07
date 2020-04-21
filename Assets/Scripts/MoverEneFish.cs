@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class MoverEneFish : MonoBehaviour
@@ -21,7 +22,7 @@ public class MoverEneFish : MonoBehaviour
     {
         ene = GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
-        pos = transform.position.x;
+        pos = transform.position.y;
         rb.velocity = new Vector2(velocidad, 0);
         gravedad = rb.gravityScale;
     }
@@ -45,28 +46,32 @@ public class MoverEneFish : MonoBehaviour
             if (recuperaVel)
             {
                 rb.velocity = velActual;
-                recuperaVel = false;              
+                recuperaVel = false;
+                if (GameManager.instance.GetGravedad()) //Devolverle la gravedad en función de si esta invertida o no
+                    rb.gravityScale = -gravedad;
+                else
+                    rb.gravityScale = gravedad;
             }
         }
 
         if (GameManager.instance.GetGravedad())
         {
-            ene.flipY = true;
+            ene.flipX = true;
         }
         else
         {
-            ene.flipY = false;
+            ene.flipX = false;
         }
-        if (transform.position.x > pos + dist)  //Controlar que no se pase de la distancia
+        if (transform.position.y > pos + dist)  //Controlar que no se pase de la distancia
         {
             cambio = true;
-            ene.flipX = true;
+            ene.flipY = true;
         }
 
-        else if (transform.position.x < pos - dist)
+        else if (transform.position.y < pos)
         {
             cambio = false;
-            ene.flipX = false;
+            ene.flipY = false;
         }
     }
     private void FixedUpdate()
@@ -74,9 +79,9 @@ public class MoverEneFish : MonoBehaviour
         if (!GameManager.instance.Tiempo())
         {
             if (cambio)
-                rb.velocity = new Vector2(-velocidad * 3, -rb.gravityScale);
+                rb.velocity = new Vector2(0, -velocidad);
             else
-                rb.velocity = new Vector2(velocidad * 3, -rb.gravityScale);
+                rb.velocity = new Vector2(0, +velocidad);
         }
     }
 }
