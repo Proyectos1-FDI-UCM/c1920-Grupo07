@@ -6,7 +6,9 @@ public class MoverPlat : MonoBehaviour
 {
     public Sprite florRoja;
     public float velocidad, distancia;
+    public bool horizontal;
 
+    
     private Sprite normal;
     private Rigidbody2D rb;
     private Vector2 posIni, velAct, velTiempo;
@@ -25,7 +27,10 @@ public class MoverPlat : MonoBehaviour
             this.GetComponent<SpriteRenderer>().sprite = florRoja;
             if (inicio)
             {
+                if(!horizontal)
                 rb.velocity = new Vector2(0, velocidad);
+                else
+                    rb.velocity = new Vector2(velocidad,0);
                 inicio = false;
             }
             else
@@ -73,11 +78,23 @@ public class MoverPlat : MonoBehaviour
                 cambio = false;
             }
 
-            if (child.transform.position.y > posIni.y + distancia)
-                rb.velocity = new Vector2(0, -velocidad);
+            if (!horizontal)
+            {
+                if (child.transform.position.y > posIni.y + distancia)
+                    rb.velocity = new Vector2(0, -velocidad);
+                else if (child.transform.position.y < posIni.y - distancia)
+                    rb.velocity = new Vector2(0, velocidad);
+            }
+            else
+            {
+                if (child.transform.position.x > posIni.x + distancia)
+                    rb.velocity = new Vector2(-velocidad,0);
+                else if (child.transform.position.x < posIni.x - distancia)
+                    rb.velocity = new Vector2(velocidad,0);
+            }
+            
 
-            else if (child.transform.position.y < posIni.y - distancia)
-                rb.velocity = new Vector2(0, velocidad);
+            
         }
     }
 }

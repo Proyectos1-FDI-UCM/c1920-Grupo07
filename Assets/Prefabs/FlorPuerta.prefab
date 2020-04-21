@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9060116975735074506}
   - component: {fileID: 9060116975735074505}
   - component: {fileID: 9060116975735074504}
+  - component: {fileID: -104384239282467899}
   m_Layer: 0
   m_Name: FlorPuerta
   m_TagString: Untagged
@@ -124,6 +125,18 @@ MonoBehaviour:
   florRoja1: {fileID: 21300000, guid: 739c34bc228d5f3448b9b8f8086b9b5d, type: 3}
   distancia: 3
   velocidad: 4
+--- !u!114 &-104384239282467899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060116975735074503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc56777c3271ca5449a0791cec03a423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060116976123770465
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,6 +150,7 @@ GameObject:
   - component: {fileID: 9060116976123770468}
   - component: {fileID: 9060116976123770469}
   - component: {fileID: 9060116976123770470}
+  - component: {fileID: 4250355730248716548}
   m_Layer: 0
   m_Name: Puerta
   m_TagString: Untagged
@@ -277,3 +291,15 @@ CompositeCollider2D:
     m_Paths: []
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.000005
+--- !u!114 &4250355730248716548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060116976123770465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9975c8f865c55b7408df18550041ba04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -5,7 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     
-
+    //Se utiliza tambien para que las plataformas
+    //vuelvan a su posicion inicial
     ReapareceEne[] componentes;
     private void Start()
     {

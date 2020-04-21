@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdb9b67b67a50248b0cc230471f489b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  florRoja: {fileID: 0}
+  florRoja: {fileID: 21300000, guid: 739c34bc228d5f3448b9b8f8086b9b5d, type: 3}
   velocidad: 2
   distancia: 2
 --- !u!114 &8825880876023721486
