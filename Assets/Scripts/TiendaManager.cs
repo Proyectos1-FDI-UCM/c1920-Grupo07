@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class TiendaManager : MonoBehaviour
 {
     public int mejoraG = 0;
-    public int mejoraT = 0; public Text mejoraGrav;
+    public int mejoraT = 0; 
+    public Text mejoraGrav;
     public Text mejoraTiempo;
     public Image[] capsulasLlenasG;
     public Image[] capsulasLlenasT;
