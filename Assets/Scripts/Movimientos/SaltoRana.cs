@@ -58,7 +58,6 @@ public class SaltoRana : MonoBehaviour
         }
         if (GameManager.instance.GetGravedad())
         {
-            ene.flipY = true;
             if (!cambioSalto)
             {
                 salto = -salto;
@@ -67,7 +66,6 @@ public class SaltoRana : MonoBehaviour
         }
         else
         {
-            ene.flipY = false;
             if (cambioSalto)
             {
                 salto = -salto;

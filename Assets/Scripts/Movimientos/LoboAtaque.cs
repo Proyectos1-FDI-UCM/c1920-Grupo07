@@ -86,7 +86,6 @@ public class LoboAtaque : MonoBehaviour
         }
         if (GameManager.instance.GetGravedad())
         {
-            lobo.flipY = true;
             if (!cambioSalto)
             {
                 salto = -salto;
@@ -96,7 +95,6 @@ public class LoboAtaque : MonoBehaviour
 
         else
         {
-            lobo.flipY = false;
             if (cambioSalto)
             {
                 salto = -salto;

@@ -77,7 +77,6 @@ public class MoverPlat : MonoBehaviour
                 rb.velocity = velTiempo;
                 cambio = false;
             }
-
             if (!horizontal)
             {
                 if (child.transform.position.y > posIni.y + distancia)
@@ -92,9 +91,6 @@ public class MoverPlat : MonoBehaviour
                 else if (child.transform.position.x < posIni.x - distancia)
                     rb.velocity = new Vector2(velocidad,0);
             }
-            
-
-            
         }
     }
 }

@@ -53,14 +53,6 @@ public class MoverEne : MonoBehaviour
             }                
         }
 
-        if (GameManager.instance.GetGravedad()) 
-        {            
-            ene.flipY = true;
-        }
-        else
-        {
-            ene.flipY = false;
-        }
         if (transform.position.x > pos + dist)  //Controlar que no se pase de la distancia
         {
             cambio = true;
