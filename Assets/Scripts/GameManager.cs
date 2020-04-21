@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private int capsulasG = 6;
    
 
-    private bool gravedad = false;
+    public bool gravedad = false;
     private bool tiempo = false;
     private bool escalera = false;
     private bool reapareceEne = false;
