@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     private bool paredL;
     private bool paredR;
     
-    void Awake() // Comprobar que solo hay un GameManager
+    void Awake()                                    //  Comprobar que solo hay un GameManager
     {
         if (instance == null)
         {
@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
     {
         if (segs == GetSegs())
         {
-            tiempo = !tiempo;      //Invierte tiempo y lo vuelve a invertir después de 5 segundos                       
+            tiempo = !tiempo;                            // Invierte tiempo y lo vuelve a invertir después de 5 segundos                       
             InvokeRepeating("Crono", 0f, 1f);
         }
     }
@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
         return tiempo;
     }
 
-    public void SetGravedad(bool active) //Método que recoge booleano del script Gravedad para saber el estado
+    public void SetGravedad(bool active)            //  Método que recoge booleano del script Gravedad para saber el estado
     {
         gravedad = active;
         SetCapsulasRest(capsulasG - 1);
@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("CAPSULAS RESTANTES: " + capsulasG);
     }
 
-    public bool GetGravedad() //Método que devuelve el booleano pedido en el método de SetGravedad
+    public bool GetGravedad()                       //  Método que devuelve el booleano pedido en el método de SetGravedad
     {
         return gravedad;
     }
@@ -179,7 +179,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene(string sceneName)
     {
-        if (sceneName != "")    //Para botón reanudar
+        if (sceneName != "")                         // Para botón reanudar
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 
@@ -222,7 +222,7 @@ public class GameManager : MonoBehaviour
 
         partesIngrediente = 0;
     }
-    public void SetUIManager(UIManager uim) // Comprobar solo un UI y actualizarlo
+    public void SetUIManager(UIManager uim)          //  Comprobar solo un UI y actualizarlo
     {
         theUIManager = uim;
         theUIManager.UpdateMonedas(monedas);
