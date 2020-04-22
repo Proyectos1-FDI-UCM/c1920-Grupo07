@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class TiempoFondo : MonoBehaviour
 {
-
+    
     public int segs = 6;
-    bool tiempo = false;
+    public bool tiempo;
     void Start()
     {
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         sprite.sortingOrder = -1;
+        tiempo = false;
     }
 
     void Update()
@@ -19,12 +20,14 @@ public class TiempoFondo : MonoBehaviour
         {
             tiempo = false;
             CambiarFondo();
-            InvokeRepeating("CambiarFondo2", 4f, 0f);
-            InvokeRepeating("Restando", 6f, 1f);
-            InvokeRepeating("Sumando", 11f, 0f);
-            if (tiempo == true) CancelInvoke();
+            Restando();
+            Invoke("CambiarFondo2", 4f);
+
+            if (tiempo == true) Invoke("Sumando", 10f);
 
         }
+
+        
     }
     public void CambiarFondo()
     {
@@ -37,15 +40,15 @@ public class TiempoFondo : MonoBehaviour
         sprite.sortingOrder = -1;
     }
     
-    public void Restando()
+    public void Restando() 
     {
-        if (segs < 7 && segs > 0)
-        segs -= 1;
+        segs = 0;
+        tiempo = true;
     }
     public void Sumando()
     {
         segs = 6;
-        tiempo = true;
+        
     }
 
     
