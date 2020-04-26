@@ -24,15 +24,12 @@ public class TiempoFondo : MonoBehaviour
             Invoke("CambiarFondo2", 4f);
 
             if (tiempo == true) Invoke("Sumando", 10f);
-
         }
-
-        
     }
     public void CambiarFondo()
     {
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
-        sprite.sortingOrder = 10;
+        sprite.sortingOrder = 1;
     }
     public void CambiarFondo2()
     {
