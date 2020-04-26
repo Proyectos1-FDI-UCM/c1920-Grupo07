@@ -18,8 +18,8 @@ public class GameManager : MonoBehaviour
     public int segs = 5;
     public int monedas = 0;
     private int capsulasG = 6;
-   
 
+    bool reaparecePuerta = false; 
     public bool gravedad = false;
     private bool tiempo = false;
     private bool escalera = false;
@@ -175,6 +175,16 @@ public class GameManager : MonoBehaviour
     public bool GetEscalera()
     {
         return escalera;
+    }
+    
+    public bool GetReaparecePuerta()
+    {
+        return reaparecePuerta;
+    }
+
+    public void SetReaparecePuerta(bool _reaparecePuerta)
+    {
+        reaparecePuerta = _reaparecePuerta;
     }
 
     public void ChangeScene(string sceneName)
