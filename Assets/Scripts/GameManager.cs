@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     UIManager theUIManager;
-
+    SoundManager soundManager;
 
     const int SEGS = 5;
     const int SEGSMEJORADO = 7;
@@ -106,13 +106,18 @@ public class GameManager : MonoBehaviour
         segs = s;
     }
 
-    public void CambioTiempo()
+    public bool CambioTiempo()
     {
         if (segs == GetSegs())
         {
+            soundManager.audioTiempo();
             tiempo = !tiempo;                            // Invierte tiempo y lo vuelve a invertir después de 5 segundos                       
             InvokeRepeating("Crono", 0f, 1f);
-        }
+            return true;
+            
+            
+        } else return false;
+
     }
 
     public void Crono()
@@ -229,6 +234,14 @@ public class GameManager : MonoBehaviour
         theUIManager.UpdateGravedad(capsulasG);
         theUIManager.UpdateTiempo(GetSegs(),tiendaT);
     }
+
+    public void SetSoundManager(SoundManager sm) 
+    {
+        soundManager = sm;
+        
+    }
+        
+
 
     public void SetReapareceEnemigo(bool _reapareceEne)
     {
