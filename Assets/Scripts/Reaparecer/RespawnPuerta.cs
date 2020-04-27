@@ -6,26 +6,16 @@ public class RespawnPuerta : MonoBehaviour
 {
     // Para que las puertas vuelvan a su posicion
 
-    
-    Sprite normal;
-    Transform child;
+    Vector2 posIni;
     void Start()
     {
-        normal = GetComponent<SpriteRenderer>().sprite;
-        child= transform.GetChild(0);
+        posIni = new Vector2(transform.position.x, transform.position.y);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Reaparece()
     {
-        if (GameManager.instance.GetReapareceEnemigo())
-        {
-       
-            child.gameObject.SetActive(false);      
-            child.gameObject.SetActive(true);
-            this.GetComponent<SpriteRenderer>().sprite = normal;
-            child.GetComponent<ReapareceEne>().Reaparece();
-            
-        }
+        transform.position = posIni;
+
     }
 }

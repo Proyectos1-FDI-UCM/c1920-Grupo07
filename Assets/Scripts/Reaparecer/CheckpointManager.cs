@@ -23,6 +23,7 @@ public class CheckpointManager : MonoBehaviour
         GameManager.instance.SetGravedad(false);
         GameManager.instance.GetSegs();
         GameManager.instance.SetReapareceEnemigo(true);
+        GameManager.instance.SetReaparecePuerta(true);
         transform.position = ultCheckpoint.position;
     }
     public void ReinicioTotal()
@@ -32,6 +33,7 @@ public class CheckpointManager : MonoBehaviour
         GameManager.instance.GetSegs();
         GameManager.instance.ReiniciaMonedas();
         GameManager.instance.SetReapareceEnemigo(true);
+        GameManager.instance.SetReaparecePuerta(true);
         GameManager.instance.AnulaMejoras();
     }
 }
