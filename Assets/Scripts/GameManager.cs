@@ -213,18 +213,14 @@ public class GameManager : MonoBehaviour
 
     public bool ActivaPortal()
     {
-
         return (partesIngrediente == 4);
-
-        
-
     }
 
     public void Levelfinished()
     {
         if (partesIngrediente == 4&& SceneManager.GetActiveScene().name=="Nivel1")
         {
-            ChangeScene("Nivel2");
+            ChangeScene("FinDemo"); //Cambiar a "Nivel2"
         }
         else if (partesIngrediente == 4 && SceneManager.GetActiveScene().name == "Nivel2")
         {
@@ -247,11 +243,8 @@ public class GameManager : MonoBehaviour
 
     public void SetSoundManager(SoundManager sm) 
     {
-        soundManager = sm;
-        
+        soundManager = sm;        
     }
-        
-
 
     public void SetReapareceEnemigo(bool _reapareceEne)
     {

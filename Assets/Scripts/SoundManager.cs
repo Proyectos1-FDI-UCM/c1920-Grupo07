@@ -8,17 +8,12 @@ public class SoundManager : MonoBehaviour
     public bool aNivel1, aTiempo;
     public AudioSource audNivel1, audTiempo, audGravedad;
 
-    void Awake()                                          //  Comprobar que solo hay un SoundManager
-    {
-        GameManager.instance.SetSoundManager(this);
-    }
 
     void Start()
     {
+        GameManager.instance.SetSoundManager(this); //  Comprobar que solo hay un SoundManager
         audioNivel();
-
     }
-
   
     public void audioGravedad()
     {
