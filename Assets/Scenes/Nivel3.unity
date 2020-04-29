@@ -660,7 +660,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa2528b4f5c7954b8bdb4c20db4275f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 166003962}
 --- !u!1 &172408421
 GameObject:
   m_ObjectHideFlags: 0
@@ -12527,6 +12526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfc4aca824b2c1443aefbf6f986a9a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sonido: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!114 &861356731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12563,7 +12564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aa2528b4f5c7954b8bdb4c20db4275f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 166003962}
 --- !u!1 &864353504
 GameObject:
   m_ObjectHideFlags: 0
@@ -13113,6 +13113,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8876048079665499518, guid: 235dc3593fa83fd4abe218e43ca6ff9b,
+        type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
     - target: {fileID: -228013830661595043, guid: 235dc3593fa83fd4abe218e43ca6ff9b,
         type: 3}
       propertyPath: segs
@@ -13122,11 +13127,6 @@ PrefabInstance:
         type: 3}
       propertyPath: partesIngrediente
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8876048079665499518, guid: 235dc3593fa83fd4abe218e43ca6ff9b,
-        type: 3}
-      propertyPath: m_Name
-      value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 8315648285490777049, guid: 235dc3593fa83fd4abe218e43ca6ff9b,
         type: 3}
@@ -16948,6 +16948,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932609e0aa0e7fc41b06485c7d0e0b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aNivel1: 0
+  aTiempo: 0
+  audNivel1: {fileID: 0}
+  audTiempo: {fileID: 0}
+  audGravedad: {fileID: 0}
 --- !u!82 &1611676684
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20686,6 +20691,12 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 861356723}
+    - target: {fileID: 7105156847780217569, guid: eec59c4f84fb99c4684f404fddcfec90,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1455096403836856330, guid: 218c8ae9179e05d4a8958e7cd403ef98,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eec59c4f84fb99c4684f404fddcfec90, type: 3}
 --- !u!1001 &8601075515786449269
