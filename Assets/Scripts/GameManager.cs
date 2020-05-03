@@ -14,10 +14,10 @@ public class GameManager : MonoBehaviour
     const int CAPS = 6;
     const int CAPSMEJORADO = 8;
 
-    private int partesIngrediente = 0;
+    public int partesIngrediente = 0;
     public int segs = 5;
     public int monedas = 0;
-    private int capsulasG = 6;
+    public int capsulasG = 6;
 
     bool reaparecePuerta = false; 
     public bool gravedad = false;
@@ -211,6 +211,10 @@ public class GameManager : MonoBehaviour
         theUIManager.UpdateIngredientes(nIngr);        
     }
 
+    public void SetIngredientes(int n)
+    {
+        partesIngrediente = n;
+    }
     public bool ActivaPortal()
     {
         return (partesIngrediente == 4);
@@ -296,8 +300,6 @@ public class GameManager : MonoBehaviour
     {
         tiendaG = false;
         tiendaT = false;
-        segs = SEGS;
-        /*mejoraG = 0;
-        mejoraT = 0;*/
+        segs = SEGS;       
     }
 }
