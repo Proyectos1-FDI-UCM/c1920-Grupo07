@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MoverEneFish : MonoBehaviour
 {
-    public float dist, velocidad;
+    [SerializeField] private float dist, velocidad;
 
     private SpriteRenderer ene;
     private Rigidbody2D rb;
@@ -54,14 +54,12 @@ public class MoverEneFish : MonoBehaviour
             }
         }
 
-        if (GameManager.instance.GetGravedad())
-        {
+        if (GameManager.instance.GetGravedad())        
             ene.flipX = true;
-        }
-        else
-        {
+        
+        else        
             ene.flipX = false;
-        }
+        
         if (transform.position.y > pos + dist)  //Controlar que no se pase de la distancia
         {
             cambio = true;

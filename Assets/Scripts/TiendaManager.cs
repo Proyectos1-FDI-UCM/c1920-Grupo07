@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class TiendaManager : MonoBehaviour
 {
-    public int mejoraG = 0;
-    public int mejoraT = 0; 
-    public Text mejoraGrav;
-    public Text mejoraTiempo;
-    public Image[] capsulasLlenasG;
-    public Image[] capsulasLlenasT;
+    [SerializeField] private int mejoraG = 0;
+    [SerializeField] private int mejoraT = 0;
+    [SerializeField] private int precio = 10;
+    [SerializeField] private Text mejoraGrav;
+    [SerializeField] private Text mejoraTiempo;
+    [SerializeField] private Image[] capsulasLlenasG;
+    [SerializeField] private Image[] capsulasLlenasT;
 
     private Canvas tiendaUI;
+
     private void Start()
     {
         tiendaUI = GetComponent<Canvas>();
@@ -31,33 +33,31 @@ public class TiendaManager : MonoBehaviour
    
     public void TiendaGravedad()
     {
-        if (GameManager.instance.GetMonedas() >= 10 && mejoraG != 3)
+        if (GameManager.instance.GetMonedas() >= precio && mejoraG != 3)
         {
             mejoraG += 1;
-            GameManager.instance.AddMonedas(-10);
+            GameManager.instance.AddMonedas(-precio);
             CompraG();
-        }       
-            
-        
+        }               
         if (mejoraG == 3)
         {
             GameManager.instance.ActualizaTienda();
-            GameManager.instance.SetCapsulasRest(8);
+            GameManager.instance.SetCapsulasRest(8);        //poner la cte
             GameManager.instance.SetTiendaG(true);            
         }       
     }
 
     public void TiendaTiempo()
     {
-        if (GameManager.instance.GetMonedas() >= 10 && mejoraT != 3)
+        if (GameManager.instance.GetMonedas() >= precio && mejoraT != 3)
         {
             mejoraT += 1;
-            GameManager.instance.AddMonedas(-10);
+            GameManager.instance.AddMonedas(-precio);
             CompraT();
         }
         if (mejoraT == 3)
         {
-            GameManager.instance.SetSegs(7);
+            GameManager.instance.SetSegs(7);          //poner la cte
             GameManager.instance.SetTiendaT(true);
             GameManager.instance.UpdateTiempo();
         }

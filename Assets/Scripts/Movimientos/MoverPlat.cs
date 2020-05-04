@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class MoverPlat : MonoBehaviour
 {
-    public Sprite florRoja;
     [SerializeField] private float velocidad, distancia;
     [SerializeField] private bool horizontal;
+    [SerializeField] private Sprite florRoja;
 
-    
     private Sprite normal;
     private Rigidbody2D rb;
     private Vector2 posIni, velAct, velTiempo;
@@ -18,10 +17,8 @@ public class MoverPlat : MonoBehaviour
 
     GameObject child;
 
-
     private void OnTriggerEnter2D(Collider2D Player)
     {
-
         if (Player.GetComponent<PlayerController>() != null)
         {
             this.GetComponent<SpriteRenderer>().sprite = florRoja;
@@ -53,9 +50,9 @@ public class MoverPlat : MonoBehaviour
         child = this.transform.GetChild(0).gameObject;
         rb = child.GetComponent<Rigidbody2D>();
         posIni = new Vector2(child.transform.position.x, child.transform.position.y);
-        normal = this.GetComponent<SpriteRenderer>().sprite;
-        
+        normal = this.GetComponent<SpriteRenderer>().sprite;        
     }
+
     void Update()
     {
         if (GameManager.instance.Tiempo())
@@ -71,7 +68,6 @@ public class MoverPlat : MonoBehaviour
 
         else if (!GameManager.instance.Tiempo())
         {
-
             if (cambio)
             {
                 rb.velocity = velTiempo;

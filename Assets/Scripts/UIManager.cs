@@ -5,19 +5,16 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Text coinsText;
-    public Image[] capsulasLlenas;
-    public Image[] partesIngrdientes;
-    public Image barraTiempo;
+    [SerializeField] private Text coinsText;
+    [SerializeField] private Image[] capsulasLlenas;
+    [SerializeField] private Image[] partesIngrdientes;
+    [SerializeField] private Image barraTiempo;
 
     void Start()
     {
         GameManager.instance.SetUIManager(this);
         UpdateMonedas(0);
-        capsulasLlenas[6].enabled = false;
-        capsulasLlenas[7].enabled = false;
-        capsulasLlenas[8].enabled = false;   //Para las vacías
-        capsulasLlenas[9].enabled = false;
+        for (int i = 6; i<= 9; i++) capsulasLlenas[i].enabled = false;    //Para las vacías
     }
 
     public void UpdateMonedas(int monedas) //Actualizar puntos

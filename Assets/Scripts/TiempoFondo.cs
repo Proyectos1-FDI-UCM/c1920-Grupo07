@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TiempoFondo : MonoBehaviour
-{
-    
+{    
     public int segs = 6;
     public bool tiempo;
     void Start()
@@ -26,11 +25,13 @@ public class TiempoFondo : MonoBehaviour
             if (tiempo == true) Invoke("Sumando", 10f);
         }
     }
+
     public void CambiarFondo()
     {
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
         sprite.sortingOrder = 1;
     }
+
     public void CambiarFondo2()
     {
         SpriteRenderer sprite = GetComponent<SpriteRenderer>();
@@ -44,9 +45,6 @@ public class TiempoFondo : MonoBehaviour
     }
     public void Sumando()
     {
-        segs = 6;
-        
-    }
-
-    
+        segs = 6;        
+    }    
 }

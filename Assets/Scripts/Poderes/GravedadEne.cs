@@ -7,6 +7,7 @@ public class GravedadEne : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer ene;
     private bool miGravedad = false;
+
     void Start()
     {
         ene = GetComponent<SpriteRenderer>();
@@ -22,6 +23,7 @@ public class GravedadEne : MonoBehaviour
             miGravedad = !miGravedad;
         }
     }
+
     public void CambiarGravedad(bool gravedad)
     {
         if(gravedad != miGravedad && GameManager.instance.GetGravedad() == true)

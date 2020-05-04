@@ -10,11 +10,11 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem part;
     public ParticleSystem part1;
 
-    public float speed = 8.0f;
-    public float jumpForce = 12.0f;    
-    public float distance;
-    public float movimientoInput;
-    private float gravedad;
+
+    [SerializeField] private float speed = 8.0f;
+    [SerializeField] private float jumpForce = 12.0f;    
+    [SerializeField] private float movimientoInput;
+    [SerializeField] private float gravedad;
 
     private bool isGrounded;
     private bool isWalking; 
@@ -64,8 +64,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        ApplyMovement();
-        
+        ApplyMovement();        
     }
 
     private void CheckMovementDirection()
@@ -131,43 +130,32 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
             part.Play();
 
-        if(GameManager.instance.GetGravedad()&& isGrounded)
-        {
+        if(GameManager.instance.GetGravedad()&& isGrounded)       
             part.transform.position = new Vector3(part.transform.position.x, transform.position.y + 0.6f, part.transform.position.z);
-        }
-        if (!GameManager.instance.GetGravedad() && isGrounded)
-        {
-            part.transform.position = new Vector3(part.transform.position.x, transform.position.y - 0.8f, part.transform.position.z);
-        }
-
+        
+        if (!GameManager.instance.GetGravedad() && isGrounded)        
+            part.transform.position = new Vector3(part.transform.position.x, transform.position.y - 0.8f, part.transform.position.z);        
     }
+
     private void Particula1()
     {
-        if (isWalking)
-        {
+        if (isWalking)        
             part1.Play();
-        }
-        if (GameManager.instance.GetGravedad() && isWalking)
-        {
+        
+        if (GameManager.instance.GetGravedad() && isWalking)        
             part1.transform.position = new Vector3(part1.transform.position.x, transform.position.y + 0.8f, part1.transform.position.z);
-        }
-        if (!GameManager.instance.GetGravedad() && isWalking)
-        {
+        
+        if (!GameManager.instance.GetGravedad() && isWalking)        
             part1.transform.position = new Vector3(part1.transform.position.x, transform.position.y - 0.8f, part1.transform.position.z);
-        }
-
-        else if (GameManager.instance.GetParedL())
-        {
+        
+        else if (GameManager.instance.GetParedL())        
             part1.Stop();
-        }
-        if (GameManager.instance.GetParedR())
-        {
+        
+        if (GameManager.instance.GetParedR())        
             part1.Stop();
-        }
+        
         else if (!isGrounded)
-
-        {
             part1.Stop();
-        }
+        
     }
 }

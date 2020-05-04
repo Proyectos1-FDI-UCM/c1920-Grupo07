@@ -4,26 +4,23 @@ using UnityEngine;
 
 public class LoboAtaque : MonoBehaviour
 {
-    
-    public float ataque, atacar, salto, temp, tiempoE;
-    private float gravedad;
-    private Vector2 velActual;
 
-    public DetectorLobo scriptDet;
-    public PlayerController scriptJug;      
+    [SerializeField] private float ataque, atacar, salto, temp, tiempoE;    
+                 
+    [SerializeField] private Animator anim;
 
-    private SpriteRenderer lobo;
+    [SerializeField] private bool inicio = true;
 
-    private Rigidbody2D rb;
-    public Animator anim;
+    public DetectorLobo scriptDet;  //Preguntar
 
     private bool recuperaVel = false;
     private bool cambioSalto = false;
     private bool velAct = false;
-    public bool inicio = true;
-    public bool iniciado = false;
 
-
+    private float gravedad;
+    private Vector2 velActual;
+    private Rigidbody2D rb;
+    
     public void Ataque()
     {
         if (!GameManager.instance.Tiempo())
@@ -35,13 +32,11 @@ public class LoboAtaque : MonoBehaviour
                 temp = tiempoE;
                 Invoke("RestartAnim", 1.0f);
                 inicio = false;
-            }
-            
-        }
-        
+            }            
+        }        
     }
 
-    public void Vuelta ()
+    public void Vuelta()
     {
         if (!GameManager.instance.Tiempo())
         {
@@ -53,20 +48,19 @@ public class LoboAtaque : MonoBehaviour
                 temp = tiempoE;
                 Invoke("RestartAnim", 1.0f);
                 inicio = true;
-            }
-
-            
+            }            
         }
-
         Invoke("RestartBool", 2f);
     }
+
     public void RestartBool()
     {
         scriptDet.iniciar = false;
     }
+
     public void RestartAnim()
     {
-        anim.Play("Parado");
+        if(anim != null) anim.Play("Parado");
     }
 
     public void Repeticion()
@@ -79,12 +73,10 @@ public class LoboAtaque : MonoBehaviour
     {
         inicio = true;
     }
-
-    
+        
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
-        lobo = this.GetComponent<SpriteRenderer>();
+        rb = this.GetComponent<Rigidbody2D>();        
         gravedad = rb.gravityScale;
         anim = GetComponent<Animator>();
         temp = tiempoE;
@@ -92,7 +84,7 @@ public class LoboAtaque : MonoBehaviour
    
     void Update()
     {
-        temp = temp - Time.deltaTime;
+        temp -= Time.deltaTime;
 
         if (GameManager.instance.Tiempo())
         {
@@ -134,9 +126,6 @@ public class LoboAtaque : MonoBehaviour
                 salto = -salto;
                 cambioSalto = false;
             }
-
-        }
-      
+        }      
     }
-
 }

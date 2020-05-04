@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Tiempo : MonoBehaviour
 {
-    SpriteRenderer sprite;
+    private SpriteRenderer sprite;
 
     private void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
-        
+        sprite = GetComponent<SpriteRenderer>();        
     }
+
     void Update()
     {
         if (Input.GetButtonDown("Fire3"))
@@ -20,22 +20,18 @@ public class Tiempo : MonoBehaviour
             {
                 CambiarFondo();
                 Invoke("CambiarFondo2", GameManager.instance.GetSegs());
-
             }
-
         }
-
     }
+
     public void CambiarFondo()
     {
         sprite.sortingOrder = 1;
     }
+
     public void CambiarFondo2()
     {
         sprite.sortingOrder = -1;
         CancelInvoke();
-    }
-
-  
- 
+    }  
 }

@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class MoverPuerta : MonoBehaviour
 {
-
-    public Sprite florRoja1;
-    public float distancia, velocidad;
+    [SerializeField] private Sprite florRoja1;
+    [SerializeField] private float distancia, velocidad;
 
     private bool inicio = false;
     private Vector2 posIni;
     private Rigidbody2D rb;
     private GameObject child;
-
-
 
     private void OnTriggerEnter2D(Collider2D Player)
     {

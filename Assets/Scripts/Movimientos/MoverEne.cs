@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoverEne : MonoBehaviour
 {
-    public float dist, velocidad;
+    [SerializeField] private float dist, velocidad;
 
     private SpriteRenderer ene;
     private Rigidbody2D rb;

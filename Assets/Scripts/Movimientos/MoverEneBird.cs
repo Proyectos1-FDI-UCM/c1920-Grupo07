@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class MoverEneBird : MonoBehaviour
 {
-    public float dist, velocidad;
+    [SerializeField] private float dist, velocidad;
 
     private SpriteRenderer ene;
     private Rigidbody2D rb;
     private Vector2 velActual;
 
-    private float pos;
-    
+    private float pos;    
 
     private bool cambio;
     private bool recuperaVel = false;
@@ -60,6 +59,7 @@ public class MoverEneBird : MonoBehaviour
             ene.flipX = true;
         }
     }
+
     private void FixedUpdate()
     {
         if (!GameManager.instance.Tiempo())

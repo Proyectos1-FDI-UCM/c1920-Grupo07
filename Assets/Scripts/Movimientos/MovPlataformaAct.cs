@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class MovPlataformaAct : MonoBehaviour
 {
-
     private Rigidbody2D rb;
+    private GameObject child;
 
-    public float deltaX;
+    [SerializeField] private float deltaX;
+    [SerializeField] private bool inicio = true;
+    [SerializeField] private Sprite florRoja, florAzul;
 
-    public bool inicio = true;
 
-    public Sprite florRoja, florAzul;
-
-    GameObject child;
-
+    void Start()
+    {
+        child = this.transform.GetChild(0).gameObject;
+    }
     public void OnTriggerEnter2D(Collider2D Player)
     {
-        if (Player.tag == "Player" && inicio) Mov1();
-        else if (Player.tag == "Player" && inicio == false) Mov2();
+        if (Player.GetComponent<PlayerController>() && inicio) Mov1();
+        else if (Player.GetComponent<PlayerController>() && !inicio) Mov2();
     }
 
     public void Mov1()
@@ -33,13 +34,12 @@ public class MovPlataformaAct : MonoBehaviour
     {
         deltaX = 3;
         rb = this.GetComponent<Rigidbody2D>();
-        rb.velocity = new Vector2(deltaX, 0);
-        
+        rb.velocity = new Vector2(deltaX, 0);        
     }
 
     public void Mov2()
     {
-        if (inicio == false)
+        if (!inicio)
         {
             child.GetComponent<SpriteRenderer>().sprite = florRoja;
             deltaX = -3;
@@ -60,14 +60,5 @@ public class MovPlataformaAct : MonoBehaviour
         inicio = false;
         child.GetComponent<SpriteRenderer>().sprite = florAzul;
     }
-    void Start()
-    {
-        child = this.transform.GetChild(0).gameObject;
-    }
-
-
-    void Update()
-    {
-        
-    }
+    
 }

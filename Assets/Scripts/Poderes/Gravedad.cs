@@ -7,8 +7,8 @@ public class Gravedad : MonoBehaviour
     private Rigidbody2D rb; 
     private float gravedad;
     private SpriteRenderer jug;
-    public SoundManager sonido;
-    public Animator anim;
+    [SerializeField] private SoundManager sonido;
+    [SerializeField] private Animator anim;
 
     void Start()
     {

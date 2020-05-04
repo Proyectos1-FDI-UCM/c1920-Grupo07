@@ -6,9 +6,7 @@ public class GravedadCamara : MonoBehaviour
 {
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<GravedadEne>())
-        {
-            other.gameObject.GetComponent<GravedadEne>().CambiarGravedad(GameManager.instance.GetGravedad());
-        }
+        GravedadEne gravedadEne = other.gameObject.GetComponent<GravedadEne>();
+        if (gravedadEne) gravedadEne.CambiarGravedad(GameManager.instance.GetGravedad());        
     }
 }

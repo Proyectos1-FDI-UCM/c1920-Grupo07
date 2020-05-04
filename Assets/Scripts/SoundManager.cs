@@ -5,10 +5,9 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
 
-    public bool aNivel1, aTiempo;
-    public AudioSource audNivel1, audTiempo, audGravedad;
-
-
+    [SerializeField] private bool aNivel1, aTiempo;
+    [SerializeField] private AudioSource audNivel1, audTiempo, audGravedad;
+    
     void Start()
     {
         GameManager.instance.SetSoundManager(this); //  Comprobar que solo hay un SoundManager
@@ -19,7 +18,6 @@ public class SoundManager : MonoBehaviour
     {
         audGravedad.Play();
     }
-
 
     public void audioNivel()
     {
@@ -32,16 +30,15 @@ public class SoundManager : MonoBehaviour
     {
         if (audNivel1.isPlaying)
             aNivel1 = false;
-        {
-            audNivel1.Stop();
-        }
+        
+        audNivel1.Stop();
+        
         if (!audTiempo.isPlaying && aTiempo == false)
         {
             audTiempo.Play();
             aTiempo = true;
         }
-        Invoke("audioNivel", GameManager.instance.GetSegs());
 
-    }
-  
+        Invoke("audioNivel", GameManager.instance.GetSegs());
+    }  
 }

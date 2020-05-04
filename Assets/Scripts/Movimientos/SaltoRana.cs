@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SaltoRana : MonoBehaviour
 {
-    public float distRight, distLeft, velocidad, salto, tiempoEntreSalto;
+    [SerializeField] private float distRight, distLeft, velocidad, salto, tiempoEntreSalto;
 
     private SpriteRenderer ene;
     private Rigidbody2D rb;
@@ -21,8 +21,9 @@ public class SaltoRana : MonoBehaviour
     void Start()
     {
         ene = GetComponent<SpriteRenderer>();
-        rb = gameObject.GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        
         pos = transform.position.x;
         rb.velocity = new Vector2(velocidad, 0);
         gravedad = rb.gravityScale;
@@ -31,7 +32,7 @@ public class SaltoRana : MonoBehaviour
 
     void Update()
     {
-        temp = temp - Time.deltaTime;
+        temp -= Time.deltaTime;
         if (GameManager.instance.Tiempo())
         {
             if (!velAct)
@@ -74,6 +75,7 @@ public class SaltoRana : MonoBehaviour
         }
         if (rb.velocity.y >= -0.01 && rb.velocity.y <= 0.01) suelo = true;
         else suelo = false;
+
         if (transform.position.x > pos + distRight && suelo)  //Controlar que no se pase de la distancia
         {
             cambio = true;
@@ -101,11 +103,11 @@ public class SaltoRana : MonoBehaviour
                 }
             }
             else if (suelo)
-                if (temp <= 0)
-                {
-                    rb.AddForce(new Vector2(velocidad, salto), ForceMode2D.Impulse);
-                    temp = tiempoEntreSalto;
-                }
+            if (temp <= 0)
+            {
+                rb.AddForce(new Vector2(velocidad, salto), ForceMode2D.Impulse);
+                temp = tiempoEntreSalto;
+            }
         }
     }
 }

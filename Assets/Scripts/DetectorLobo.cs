@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class DetectorLobo : MonoBehaviour
 {
     public bool iniciar = false;
-    public LoboAtaque LoboAtq;
-
+    [SerializeField] private LoboAtaque LoboAtq;
 
     private void OnTriggerEnter2D(Collider2D Player)
     {
@@ -18,6 +16,4 @@ public class DetectorLobo : MonoBehaviour
     {
         if (iniciar) LoboAtq.Invoke("Repeticion", 0.2f);
     }
-
-
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PararAnimacion : MonoBehaviour
 {    
-    Animator anim;
+    private Animator anim;
 
     private void Start()
     {

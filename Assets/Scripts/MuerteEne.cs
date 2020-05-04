@@ -15,7 +15,6 @@ public class MuerteEne : MonoBehaviour
         if (other.gameObject.GetComponent<PlayerController>() != null)
         {
             this.transform.parent.gameObject.SetActive(false);
-        }
-              
+        }              
     }    
 }
