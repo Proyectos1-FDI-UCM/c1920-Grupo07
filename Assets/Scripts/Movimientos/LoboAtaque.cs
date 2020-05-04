@@ -5,18 +5,15 @@ using UnityEngine;
 public class LoboAtaque : MonoBehaviour
 {
     
-    private float direccion = 0.1f;
-    public float ataque, atacar, salto;
+    public float ataque, atacar, salto, temp, tiempoE;
     private float gravedad;
     private Vector2 velActual;
 
-    public DetectorLobo scriptDet;              // Necesario para el booleano que se activa al pasar sobre el detector.
-    public PlayerController scriptJug;          // Necesario para el valor del input de movimiento, que indica si el jugador va a la izquierda o a la derecha.
+    public DetectorLobo scriptDet;
+    public PlayerController scriptJug;      
 
     private SpriteRenderer lobo;
 
-    public GameObject Player;
-    public GameObject Lobo;
     private Rigidbody2D rb;
     public Animator anim;
 
@@ -24,40 +21,78 @@ public class LoboAtaque : MonoBehaviour
     private bool cambioSalto = false;
     private bool velAct = false;
     public bool inicio = true;
+    public bool iniciado = false;
 
-   
 
+    public void Ataque()
+    {
+        if (!GameManager.instance.Tiempo())
+        {
+            if (inicio && temp <=0)              
+            {
+                anim.Play("LoboAtaque");
+                rb.AddForce(new Vector2(ataque, salto), ForceMode2D.Impulse);
+                temp = tiempoE;
+                Invoke("RestartAnim", 1.0f);
+                inicio = false;
+            }
+            
+        }
+        
+    }
+
+    public void Vuelta ()
+    {
+        if (!GameManager.instance.Tiempo())
+        {
+            if (inicio == false && temp <= 0)
+            {
+                anim.Play("LoboVuelta");
+                rb.AddForce(new Vector2(atacar, salto), ForceMode2D.Impulse);
+                Debug.Log("Volviendo");
+                temp = tiempoE;
+                Invoke("RestartAnim", 1.0f);
+                inicio = true;
+            }
+
+            
+        }
+
+        Invoke("RestartBool", 2f);
+    }
+    public void RestartBool()
+    {
+        scriptDet.iniciar = false;
+    }
+    public void RestartAnim()
+    {
+        anim.Play("Parado");
+    }
+
+    public void Repeticion()
+    {
+        Ataque();
+        Vuelta();
+    }
+
+    public void Espera()
+    {
+        inicio = true;
+    }
+
+    
     void Start()
     {
-       
         rb = this.GetComponent<Rigidbody2D>();
         lobo = this.GetComponent<SpriteRenderer>();
         gravedad = rb.gravityScale;
         anim = GetComponent<Animator>();
-        
+        temp = tiempoE;
     }
-    private void FixedUpdate()
-    { 
-        if (scriptDet.iniciar)
-        {
-            if (!GameManager.instance.Tiempo())
-            {
-                if (inicio && scriptJug.movimientoInput < direccion)                // Si el jugador se acerca al lobo, éste salta hacia él.
-                {
-                    rb.AddForce(new Vector2(ataque, salto), ForceMode2D.Impulse);
-                    inicio = false;
-                    
-                }   
-                if (inicio == false && scriptJug.movimientoInput > direccion)       // Si el jugador se aleja del lobo, éste se aparta él.
-                {
-                    rb.AddForce(new Vector2(atacar, salto), ForceMode2D.Impulse);
-                    inicio = !inicio;
-                }
-            }
-        }
-    }
+   
     void Update()
     {
+        temp = temp - Time.deltaTime;
 
         if (GameManager.instance.Tiempo())
         {
@@ -92,7 +127,6 @@ public class LoboAtaque : MonoBehaviour
                 cambioSalto = true;
             }
         }
-
         else
         {
             if (cambioSalto)
@@ -102,11 +136,7 @@ public class LoboAtaque : MonoBehaviour
             }
 
         }
-
-
-        //  if (scriptDet.iniciar == true) Debug.Log("Iniciado");             // (No necesario) Ayuda a determinar al desarrollador la posición del detector estando dentro del juego.
-
-       
+      
     }
 
 }

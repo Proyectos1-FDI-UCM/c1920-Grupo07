@@ -5,8 +5,8 @@ using UnityEngine;
 public class MoverPlat : MonoBehaviour
 {
     public Sprite florRoja;
-    public float velocidad, distancia;
-    public bool horizontal;
+    [SerializeField] private float velocidad, distancia;
+    [SerializeField] private bool horizontal;
 
     
     private Sprite normal;
