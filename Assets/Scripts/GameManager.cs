@@ -7,17 +7,17 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     UIManager theUIManager;
-
+    SoundManager soundManager;
 
     const int SEGS = 5;
     const int SEGSMEJORADO = 7;
     const int CAPS = 6;
     const int CAPSMEJORADO = 8;
 
-    private int partesIngrediente = 0;
+    public int partesIngrediente = 0;
     public int segs = 5;
     public int monedas = 0;
-    private int capsulasG = 6;
+    public int capsulasG = 6;
 
     bool reaparecePuerta = false; 
     public bool gravedad = false;
@@ -106,13 +106,18 @@ public class GameManager : MonoBehaviour
         segs = s;
     }
 
-    public void CambioTiempo()
+    public bool CambioTiempo()
     {
         if (segs == GetSegs())
         {
+            soundManager.audioTiempo();
             tiempo = !tiempo;                            // Invierte tiempo y lo vuelve a invertir después de 5 segundos                       
             InvokeRepeating("Crono", 0f, 1f);
-        }
+            return true;
+            
+            
+        } else return false;
+
     }
 
     public void Crono()
@@ -206,20 +211,20 @@ public class GameManager : MonoBehaviour
         theUIManager.UpdateIngredientes(nIngr);        
     }
 
+    public void SetIngredientes(int n)
+    {
+        partesIngrediente = n;
+    }
     public bool ActivaPortal()
     {
-
         return (partesIngrediente == 4);
-
-        
-
     }
 
     public void Levelfinished()
     {
         if (partesIngrediente == 4&& SceneManager.GetActiveScene().name=="Nivel1")
         {
-            ChangeScene("Nivel2");
+            ChangeScene("FinDemo"); //Cambiar a "Nivel2"
         }
         else if (partesIngrediente == 4 && SceneManager.GetActiveScene().name == "Nivel2")
         {
@@ -238,6 +243,11 @@ public class GameManager : MonoBehaviour
         theUIManager.UpdateMonedas(monedas);
         theUIManager.UpdateGravedad(capsulasG);
         theUIManager.UpdateTiempo(GetSegs(),tiendaT);
+    }
+
+    public void SetSoundManager(SoundManager sm) 
+    {
+        soundManager = sm;        
     }
 
     public void SetReapareceEnemigo(bool _reapareceEne)
@@ -290,8 +300,6 @@ public class GameManager : MonoBehaviour
     {
         tiendaG = false;
         tiendaT = false;
-        segs = SEGS;
-        /*mejoraG = 0;
-        mejoraT = 0;*/
+        segs = SEGS;       
     }
 }

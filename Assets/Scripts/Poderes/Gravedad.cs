@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Gravedad : MonoBehaviour
 {
-    private Rigidbody2D rb;    
-    private bool active = false;
+    private Rigidbody2D rb; 
     private float gravedad;
     private SpriteRenderer jug;
+    public SoundManager sonido;
+    public Animator anim;
 
     void Start()
     {
@@ -22,16 +23,10 @@ public class Gravedad : MonoBehaviour
         {
             rb.gravityScale *= -1;
 
-            if (!active)
-            {
-                active = true;
-                GameManager.instance.SetGravedad(active); 
-            }
-            else
-            {
-                active = false;
-                GameManager.instance.SetGravedad(active);
-            }            
+            if (!GameManager.instance.GetGravedad())                          
+                GameManager.instance.SetGravedad(true);             
+            else                            
+                GameManager.instance.SetGravedad(false);                     
         }
 
         if (!GameManager.instance.GetGravedad() && !GameManager.instance.GetEscalera())
@@ -42,5 +37,19 @@ public class Gravedad : MonoBehaviour
 
         else
             jug.flipY = false;
-    }
+
+        if (GameManager.instance.GetGravedad())
+        {
+            anim.SetBool("Gravedad", true);
+            anim.SetBool("Gravedad2", false);
+        }
+        else
+        {
+            anim.SetBool("Gravedad", false);
+            anim.SetBool("Gravedad2", true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() > 0 && !GameManager.instance.GetEscalera())        
+            sonido.audioGravedad();        
+    }      
 }

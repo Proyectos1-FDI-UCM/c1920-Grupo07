@@ -31,10 +31,10 @@ public class TiendaManager : MonoBehaviour
    
     public void TiendaGravedad()
     {
-        if (GameManager.instance.GetMonedas() >= 1 && mejoraG != 3)
+        if (GameManager.instance.GetMonedas() >= 10 && mejoraG != 3)
         {
             mejoraG += 1;
-            GameManager.instance.AddMonedas(-1);
+            GameManager.instance.AddMonedas(-10);
             CompraG();
         }       
             
@@ -49,10 +49,10 @@ public class TiendaManager : MonoBehaviour
 
     public void TiendaTiempo()
     {
-        if (GameManager.instance.GetMonedas() >= 1 && mejoraT != 3)
+        if (GameManager.instance.GetMonedas() >= 10 && mejoraT != 3)
         {
             mejoraT += 1;
-            GameManager.instance.AddMonedas(-1);
+            GameManager.instance.AddMonedas(-10);
             CompraT();
         }
         if (mejoraT == 3)

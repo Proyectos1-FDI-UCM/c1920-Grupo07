@@ -10,7 +10,6 @@ public class CheckpointManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
             Reaparecer();
-
     }
     public void Pasapor(Transform checkpoint)
     {
@@ -19,8 +18,14 @@ public class CheckpointManager : MonoBehaviour
 
     public void Reaparecer()
     {
-        GameManager.instance.SetCapsulasRest(GameManager.instance.GetCapsulasG() + 1); //Poner una cápsula de más poruq econ la sig línea se resta una
-        GameManager.instance.SetGravedad(false);
+        if (GameManager.instance.GetGravedad())
+        {
+            GameManager.instance.SetCapsulasRest(GameManager.instance.GetCapsulasG() + 1); //Poner una cápsula de más poruq econ la sig línea se resta una
+            GameManager.instance.SetGravedad(false);
+        }
+        else
+            GameManager.instance.SetCapsulasRest(GameManager.instance.GetCapsulasG());
+               
         GameManager.instance.GetSegs();
         GameManager.instance.SetReapareceEnemigo(true);
         GameManager.instance.SetReaparecePuerta(true);
@@ -35,5 +40,6 @@ public class CheckpointManager : MonoBehaviour
         GameManager.instance.SetReapareceEnemigo(true);
         GameManager.instance.SetReaparecePuerta(true);
         GameManager.instance.AnulaMejoras();
+        GameManager.instance.SetIngredientes(0);
     }
 }
