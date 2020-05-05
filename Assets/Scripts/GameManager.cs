@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
-
         else Destroy(this.gameObject);
     }
 
@@ -113,11 +112,9 @@ public class GameManager : MonoBehaviour
             soundManager.audioTiempo();
             tiempo = !tiempo;                            // Invierte tiempo y lo vuelve a invertir después de 5 segundos                       
             InvokeRepeating("Crono", 0f, 1f);
-            return true;
-            
+            return true;            
             
         } else return false;
-
     }
 
     public void Crono()
@@ -259,6 +256,7 @@ public class GameManager : MonoBehaviour
     {
         return reapareceEne;
     }
+
     public int GetCapsulasG()
     {
         if (!tiendaG)
@@ -266,6 +264,7 @@ public class GameManager : MonoBehaviour
         else
             return CAPSMEJORADO;
     }
+
     public void SetTiendaFisica(bool tiendaF)
     {
         tiendaFisica = tiendaF;

@@ -15,7 +15,6 @@ public class Tiempo : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire3"))
         {
-
             if (GameManager.instance.CambioTiempo())
             {
                 CambiarFondo();
