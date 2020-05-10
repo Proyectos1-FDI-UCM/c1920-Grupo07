@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem part;
     public ParticleSystem part1;
 
+    [SerializeField] Constantes.Poderes Poderes;
 
     [SerializeField] private float speed = 8.0f;
     [SerializeField] private float jumpForce = 12.0f;    
