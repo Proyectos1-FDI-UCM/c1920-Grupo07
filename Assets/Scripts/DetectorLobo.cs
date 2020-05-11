@@ -15,5 +15,6 @@ public class DetectorLobo : MonoBehaviour
     private void Update()
     {
         if (iniciar) LoboAtq.Invoke("Repeticion", 0.2f);
+        
     }
 }
