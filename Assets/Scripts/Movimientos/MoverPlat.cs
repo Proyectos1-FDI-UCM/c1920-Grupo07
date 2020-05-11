@@ -55,19 +55,10 @@ public class MoverPlat : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.Tiempo())
-        {
-            if (!cambio)
-            {
-                velTiempo = rb.velocity;
-                cambio = true;
-            }
+       
 
-            rb.velocity = Vector2.zero;
-        }
-
-        else if (!GameManager.instance.Tiempo())
-        {
+        
+       
             if (cambio)
             {
                 rb.velocity = velTiempo;
@@ -87,6 +78,6 @@ public class MoverPlat : MonoBehaviour
                 else if (child.transform.position.x < posIni.x - distancia)
                     rb.velocity = new Vector2(velocidad,0);
             }
-        }
+        
     }
 }
