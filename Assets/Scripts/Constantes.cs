@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Constantes
 {
     [System.Serializable]
-    public struct Poderes
+    public struct Ctes
     {
         public int SEGS;
         public int SEGSMEJORADO;
