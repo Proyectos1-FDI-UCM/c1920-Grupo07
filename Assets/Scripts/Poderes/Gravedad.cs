@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Gravedad : MonoBehaviour
 {
-    private Rigidbody2D rb; 
+    private Rigidbody2D rb;
     private float gravedad;
     private SpriteRenderer jug;
-    [SerializeField] private SoundManager sonido;
-    [SerializeField] private Animator anim;
+    public SoundManager sonido;
+    public Animator anim;
 
-    void Start()
+    void Start()                             //  Definimos las variables que usaremos en este script.
     {
         jug = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
@@ -19,28 +19,28 @@ public class Gravedad : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() > 0 && !GameManager.instance.GetEscalera())
-        {
-            rb.gravityScale *= -1;
+        if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() > 0 && !GameManager.instance.GetEscalera())     //  En caso de estar escalando, cambia la 
+        {                                                                                                                              //  gravedad del jugador para que no caiga 
+            rb.gravityScale *= -1;                                                                                                     //  y pueda subir por la escalera/liana.
 
-            if (!GameManager.instance.GetGravedad())                          
-                GameManager.instance.SetGravedad(true);             
-            else                            
-                GameManager.instance.SetGravedad(false);                     
+            if (!GameManager.instance.GetGravedad())
+                GameManager.instance.SetGravedad(true);
+            else
+                GameManager.instance.SetGravedad(false);
         }
 
-        if (!GameManager.instance.GetGravedad() && !GameManager.instance.GetEscalera())
+        if (!GameManager.instance.GetGravedad() && !GameManager.instance.GetEscalera())     //  En caso de no estar escalando.
             rb.gravityScale = gravedad;
 
-        if (GameManager.instance.GetGravedad()) //Rotar el sprite según la gravedad
+        if (GameManager.instance.GetGravedad())      //  Rotar el sprite según la gravedad.
             jug.flipY = true;
 
         else
             jug.flipY = false;
 
-        if (GameManager.instance.GetGravedad())
-        {
-            anim.SetBool("Gravedad", true);
+        if (GameManager.instance.GetGravedad())       //  Se encarga de las animaciones que 
+        {                                             //  forman parte de los efectos visuales
+            anim.SetBool("Gravedad", true);           //  de la gravedad.
             anim.SetBool("Gravedad2", false);
         }
         else
@@ -49,7 +49,7 @@ public class Gravedad : MonoBehaviour
             anim.SetBool("Gravedad2", true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() > 0 && !GameManager.instance.GetEscalera())
-            sonido.audioGravedad();        
-    }      
+        if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() > 0 && !GameManager.instance.GetEscalera())          //  Se encarga de los efectos 
+            sonido.audGravedad.Play();                                                                                                      //  sonoros de la gravedad.
+    }
 }

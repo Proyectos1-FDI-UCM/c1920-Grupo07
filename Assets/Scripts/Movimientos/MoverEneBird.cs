@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class MoverEneBird : MonoBehaviour
 {
-    [SerializeField] private float dist, velocidad;
+    public float dist, velocidad;
 
     private SpriteRenderer ene;
     private Rigidbody2D rb;
     private Vector2 velActual;
+    public SoundManager sonido;
 
-    private float pos;    
+    private float pos;
+
 
     private bool cambio;
     private bool recuperaVel = false;
     private bool velAct = false;
-  
+
     void Start()
     {
         ene = GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         pos = transform.position.x;
-        rb.velocity = new Vector2(velocidad, 0);        
+        rb.velocity = new Vector2(velocidad, 0);
     }
 
     void Update()
@@ -32,25 +34,26 @@ public class MoverEneBird : MonoBehaviour
             {
                 velActual = rb.velocity;
                 velAct = true;
-            }            
+                sonido.audAve.Play();
+            }
             rb.velocity = new Vector2(0, 0);
             recuperaVel = true;
         }
-        else if(!GameManager.instance.Tiempo())
+        else if (!GameManager.instance.Tiempo())
         {
             velAct = false;
             if (recuperaVel)
             {
                 rb.velocity = velActual;
-                recuperaVel = false;                
-            }                
+                recuperaVel = false;
+            }
         }
 
-        
+
         if (transform.position.x > pos + dist)  //Controlar que no se pase de la distancia
         {
             cambio = true;
-            ene.flipX = false;      
+            ene.flipX = false;
         }
 
         else if (transform.position.x < pos - dist)
@@ -59,7 +62,6 @@ public class MoverEneBird : MonoBehaviour
             ene.flipX = true;
         }
     }
-
     private void FixedUpdate()
     {
         if (!GameManager.instance.Tiempo())
@@ -68,6 +70,14 @@ public class MoverEneBird : MonoBehaviour
                 rb.velocity = new Vector2(-velocidad * 3, 0);
             else
                 rb.velocity = new Vector2(velocidad * 3, 0);
-        }       
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)                         //  Sirve para reproducir el efecto de
+    {                                                                       //  muerte del ave una vez lo matas.
+        if (other.gameObject.GetComponent<PlayerController>() != null)
+        {
+            sonido.deadAve();
+        }
     }
 }

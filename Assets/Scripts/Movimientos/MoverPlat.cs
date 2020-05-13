@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MoverPlat : MonoBehaviour
 {
+    public Sprite florRoja;
     [SerializeField] private float velocidad, distancia;
     [SerializeField] private bool horizontal;
-    [SerializeField] private Sprite florRoja;
+
 
     private Sprite normal;
     private Rigidbody2D rb;
@@ -17,17 +18,19 @@ public class MoverPlat : MonoBehaviour
 
     GameObject child;
 
-    private void OnTriggerEnter2D(Collider2D Player)
-    {
+
+    private void OnTriggerEnter2D(Collider2D Player)            //  Controla el movimiento de la plataforma,
+    {                                                           //  el cual comienza una vez se entra en el Trigger.
+
         if (Player.GetComponent<PlayerController>() != null)
         {
-            this.GetComponent<SpriteRenderer>().sprite = florRoja;
-            if (inicio)
+            this.GetComponent<SpriteRenderer>().sprite = florRoja;      //  Cambia el sprite de la flor 
+            if (inicio)                                                 //  mientras esté activa.
             {
-                if(!horizontal)
-                rb.velocity = new Vector2(0, velocidad);
+                if (!horizontal)
+                    rb.velocity = new Vector2(0, velocidad);
                 else
-                    rb.velocity = new Vector2(velocidad,0);
+                    rb.velocity = new Vector2(velocidad, 0);
                 inicio = false;
             }
             else
@@ -35,30 +38,40 @@ public class MoverPlat : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D Player)
-    {
+    private void OnTriggerExit2D(Collider2D Player)             //  Cuando se sale del Trigger, este
+    {                                                           //  movimiento se detiene.
         if (Player.GetComponent<PlayerController>() != null)
         {
-            this.GetComponent<SpriteRenderer>().sprite = normal;
+            this.GetComponent<SpriteRenderer>().sprite = normal;     //  Vuelve a cambiar el sprite porque se desactiva.
             velAct = rb.velocity;
             rb.velocity = new Vector2(0, 0);
         }
     }
 
-    private void Start()
+    private void Start()            //  Definimos las variables que utilizaremos en este script.
     {
         child = this.transform.GetChild(0).gameObject;
         rb = child.GetComponent<Rigidbody2D>();
         posIni = new Vector2(child.transform.position.x, child.transform.position.y);
-        normal = this.GetComponent<SpriteRenderer>().sprite;        
-    }
+        normal = this.GetComponent<SpriteRenderer>().sprite;
 
+    }
     void Update()
     {
-       
+        if (GameManager.instance.Tiempo())      //  Detiene el movimiento actual si se 
+        {                                       //  para el tiempo.
+            if (!cambio)
+            {
+                velTiempo = rb.velocity;
+                cambio = true;
+            }
 
-        
-       
+            rb.velocity = Vector2.zero;
+        }
+
+        else if (!GameManager.instance.Tiempo())            //  Provoca que el movimiento de la plataforma 
+        {                                                   //  sea oscilatorio, siempre que el tiempo no 
+                                                            //  esté detenido.
             if (cambio)
             {
                 rb.velocity = velTiempo;
@@ -74,10 +87,10 @@ public class MoverPlat : MonoBehaviour
             else
             {
                 if (child.transform.position.x > posIni.x + distancia)
-                    rb.velocity = new Vector2(-velocidad,0);
+                    rb.velocity = new Vector2(-velocidad, 0);
                 else if (child.transform.position.x < posIni.x - distancia)
-                    rb.velocity = new Vector2(velocidad,0);
+                    rb.velocity = new Vector2(velocidad, 0);
             }
-        
+        }
     }
 }

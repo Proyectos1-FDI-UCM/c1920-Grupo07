@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public int monedas = 0;
     public int capsulasG = 6;
 
-    bool reaparecePuerta = false; 
+    bool reaparecePuerta = false;
     public bool gravedad = false;
     private bool tiempo = false;
     private bool escalera = false;
@@ -31,48 +31,49 @@ public class GameManager : MonoBehaviour
     private bool suelo;
     private bool paredL;
     private bool paredR;
-    
-    void Awake()                                    //  Comprobar que solo hay un GameManager
+
+    void Awake()                                    //  Comprobar que solo hay un GameManager.
     {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+
         else Destroy(this.gameObject);
     }
 
-    public void SetSuelo(bool isGrounded)
+    public void SetSuelo(bool isGrounded)       //  Detecta el suelo. 
     {
         suelo = isGrounded;
     }
 
-    public bool GetSuelo()
-    {
+    public bool GetSuelo()                      //  Devuelve un valor que indica
+    {                                           //  si hay suelo o no.
         return suelo;
     }
 
-    public void SetParedL(bool paredL_)
+    public void SetParedL(bool paredL_)         //  Detecta pared por la izquierda.
     {
         paredL = paredL_;
     }
 
-    public bool GetParedL()
-    {
+    public bool GetParedL()                     //  Devuelve un valor que indica
+    {                                           //  si hay pared por la izquierda o no.
         return paredL;
     }
 
-    public void SetParedR(bool paredR_)
+    public void SetParedR(bool paredR_)         //  Detecta pared por la derecha.
     {
         paredR = paredR_;
     }
 
-    public bool GetParedR()
-    {
+    public bool GetParedR()                     //  Devuelve un valor que indica
+    {                                           //  si hay pared por la derecha o no.
         return paredR;
     }
 
-    public void AddMonedas(int n)
+    public void AddMonedas(int n)               //  Añade monedas a la cantidad actual.
     {
         monedas += n;
         if (theUIManager != null)
@@ -80,14 +81,14 @@ public class GameManager : MonoBehaviour
         Debug.Log(monedas);
     }
 
-    public void ReiniciaMonedas()
+    public void ReiniciaMonedas()               //  Pone la cantidad de monedas a 0.
     {
         monedas = 0;
         if (theUIManager != null)
             theUIManager.UpdateMonedas(monedas);
     }
 
-    public int GetMonedas()
+    public int GetMonedas()                     //  Devuelve la cantidad de monedas.
     {
         return monedas;
     }
@@ -96,9 +97,9 @@ public class GameManager : MonoBehaviour
     {
         if (!tiendaT)
             return SEGS;
-        
+
         else
-            return SEGSMEJORADO;        
+            return SEGSMEJORADO;
     }
     public void SetSegs(int s)
     {
@@ -112,15 +113,18 @@ public class GameManager : MonoBehaviour
             soundManager.audioTiempo();
             tiempo = !tiempo;                            // Invierte tiempo y lo vuelve a invertir después de 5 segundos                       
             InvokeRepeating("Crono", 0f, 1f);
-            return true;            
-            
-        } else return false;
+            return true;
+
+
+        }
+        else return false;
+
     }
 
     public void Crono()
     {
         segs -= 1;
-        theUIManager.UpdateTiempo(segs,tiendaT);
+        theUIManager.UpdateTiempo(segs, tiendaT);
         if (segs == 0)
         {
             tiempo = false;
@@ -134,18 +138,18 @@ public class GameManager : MonoBehaviour
         if (segs != GetSegs())
         {
             segs += 1;
-            theUIManager.UpdateTiempo(segs,tiendaT);
+            theUIManager.UpdateTiempo(segs, tiendaT);
         }
         if (segs == GetSegs())
             CancelInvoke();
     }
 
-    public bool Tiempo()
-    {
+    public bool Tiempo()                //  Devuelve un valor que indica 
+    {                                   //  si el tiempo está detenido o no.
         return tiempo;
     }
 
-    public void SetGravedad(bool active)            //  Método que recoge booleano del script Gravedad para saber el estado
+    public void SetGravedad(bool active)            //  Método que recoge booleano del script Gravedad para saber el estado.
     {
         gravedad = active;
         SetCapsulasRest(capsulasG - 1);
@@ -153,12 +157,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("CAPSULAS RESTANTES: " + capsulasG);
     }
 
-    public bool GetGravedad()                       //  Método que devuelve el booleano pedido en el método de SetGravedad
+    public bool GetGravedad()                       //  Método que devuelve el booleano pedido en el método de SetGravedad.
     {
         return gravedad;
     }
 
-    public void SetCapsulasRest(int capsG)
+    public void SetCapsulasRest(int capsG)          //  Da un valor a la cantidad de cápsulas. 
     {
         capsulasG = capsG;
         theUIManager.UpdateGravedad(capsulasG);
@@ -174,11 +178,11 @@ public class GameManager : MonoBehaviour
         escalera = escalera1;
     }
 
-    public bool GetEscalera()
-    {
+    public bool GetEscalera()               //  Devuelve un valor que indica 
+    {                                       //  si hay escalera o no.
         return escalera;
     }
-    
+
     public bool GetReaparecePuerta()
     {
         return reaparecePuerta;
@@ -189,9 +193,9 @@ public class GameManager : MonoBehaviour
         reaparecePuerta = _reaparecePuerta;
     }
 
-    public void ChangeScene(string sceneName)
+    public void ChangeScene(string sceneName)        //  Cambia de la escena actual a otra.
     {
-        if (sceneName != "")                         // Para botón reanudar
+        if (sceneName != "")                         //  Para el botón reanudar.
         {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 
@@ -202,24 +206,24 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void RecogeIngrediente(int nIngr)
-    {
+    public void RecogeIngrediente(int nIngr)         //  Añade 1 a la cantidad de 
+    {                                                //  ingredientes actuales.
         partesIngrediente++;
-        theUIManager.UpdateIngredientes(nIngr);        
+        theUIManager.UpdateIngredientes(nIngr);
     }
 
-    public void SetIngredientes(int n)
+    public void SetIngredientes(int n)               //  Da un valor a la cantidad de ingredientes.
     {
         partesIngrediente = n;
     }
-    public bool ActivaPortal()
-    {
+    public bool ActivaPortal()                      //  Activa el portal al siguiente 
+    {                                               //  nivel en caso de que haya 4 ingredientes.
         return (partesIngrediente == 4);
     }
 
     public void Levelfinished()
     {
-        if (partesIngrediente == 4&& SceneManager.GetActiveScene().name=="Nivel1")
+        if (partesIngrediente == 4 && SceneManager.GetActiveScene().name == "Nivel1")
         {
             ChangeScene("FinDemo"); //Cambiar a "Nivel2"
         }
@@ -239,12 +243,12 @@ public class GameManager : MonoBehaviour
         theUIManager = uim;
         theUIManager.UpdateMonedas(monedas);
         theUIManager.UpdateGravedad(capsulasG);
-        theUIManager.UpdateTiempo(GetSegs(),tiendaT);
+        theUIManager.UpdateTiempo(GetSegs(), tiendaT);
     }
 
-    public void SetSoundManager(SoundManager sm) 
+    public void SetSoundManager(SoundManager sm)
     {
-        soundManager = sm;        
+        soundManager = sm;
     }
 
     public void SetReapareceEnemigo(bool _reapareceEne)
@@ -256,7 +260,6 @@ public class GameManager : MonoBehaviour
     {
         return reapareceEne;
     }
-
     public int GetCapsulasG()
     {
         if (!tiendaG)
@@ -264,7 +267,6 @@ public class GameManager : MonoBehaviour
         else
             return CAPSMEJORADO;
     }
-
     public void SetTiendaFisica(bool tiendaF)
     {
         tiendaFisica = tiendaF;
@@ -282,7 +284,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateTiempo()
     {
-        theUIManager.UpdateTiempo(segs,tiendaT);
+        theUIManager.UpdateTiempo(segs, tiendaT);
     }
 
     public void SetTiendaG(bool tiendaG_)
@@ -299,6 +301,6 @@ public class GameManager : MonoBehaviour
     {
         tiendaG = false;
         tiendaT = false;
-        segs = SEGS;       
+        segs = SEGS;
     }
 }
