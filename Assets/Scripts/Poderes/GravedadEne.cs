@@ -5,12 +5,10 @@ using UnityEngine;
 public class GravedadEne : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private SpriteRenderer ene;
     private bool miGravedad = false;
 
     void Start()
     {
-        ene = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -19,7 +17,7 @@ public class GravedadEne : MonoBehaviour
         if(GameManager.instance.GetGravedad() == false && miGravedad != GameManager.instance.GetGravedad())
         {
             rb.gravityScale *= -1;
-            ene.flipY = false;
+            transform.Rotate(180.0f, 0.0f, 0.0f, Space.Self);
             miGravedad = !miGravedad;
         }
     }
@@ -29,7 +27,7 @@ public class GravedadEne : MonoBehaviour
         if(gravedad != miGravedad && GameManager.instance.GetGravedad() == true)
         {
             rb.gravityScale *= -1;
-            ene.flipY = true;
+            transform.Rotate(180.0f, 0.0f, 0.0f, Space.Self);
             miGravedad = !miGravedad;
         }
     }
