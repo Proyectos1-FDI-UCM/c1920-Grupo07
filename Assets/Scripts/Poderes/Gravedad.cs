@@ -49,7 +49,7 @@ public class Gravedad : MonoBehaviour
             anim.SetBool("Gravedad2", true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() > 0 && !GameManager.instance.GetEscalera())        
+        if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() > 0 && !GameManager.instance.GetEscalera())
             sonido.audioGravedad();        
     }      
 }
