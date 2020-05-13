@@ -22,9 +22,9 @@ public class GravedadEne : MonoBehaviour
         }
     }
 
-    public void CambiarGravedad(bool gravedad)
+    public void CambiarGravedad()
     {
-        if(gravedad != miGravedad && GameManager.instance.GetGravedad() == true)
+        if(GameManager.instance.GetGravedad() != miGravedad && GameManager.instance.GetGravedad() == true)
         {
             rb.gravityScale *= -1;
             transform.Rotate(180.0f, 0.0f, 0.0f, Space.Self);
