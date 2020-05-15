@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2193726099287047809}
   - component: {fileID: 436411561428802104}
   - component: {fileID: -3337985150392522199}
+  - component: {fileID: 5971025448957804674}
   m_Layer: 0
   m_Name: Pinchos_3
   m_TagString: Untagged
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 3
   m_Sprite: {fileID: 3796442018181125754, guid: e7862000d6c1dbc4da82130aa35f5d2b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -108,7 +109,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.37420177}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -119,5 +120,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.875, y: 1.625}
+  m_Size: {x: 1.875, y: 0.87659645}
   m_EdgeRadius: 0
+--- !u!68 &5971025448957804674
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2550547964202321811}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.92889786, y: -0.060216904}
+  - {x: 0.04937744, y: -0.8172226}
+  - {x: 0.9375, y: -0.060216904}

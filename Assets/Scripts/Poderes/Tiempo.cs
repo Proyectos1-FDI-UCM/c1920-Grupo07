@@ -25,12 +25,12 @@ public class Tiempo : MonoBehaviour
 
     public void CambiarFondo()
     {
-        sprite.sortingOrder = 1;
+        sprite.sortingOrder = 0;
     }
 
     public void CambiarFondo2()
     {
-        sprite.sortingOrder = -1;
+        sprite.sortingOrder = -2;
         CancelInvoke();
     }  
 }

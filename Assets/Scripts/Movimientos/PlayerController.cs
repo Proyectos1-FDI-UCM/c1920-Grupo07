@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem part;
     public ParticleSystem part1;
 
+     AudioSource jumpSound;
+
 
     [SerializeField] private float speed = 8.0f;
     [SerializeField] private float jumpForce = 12.0f;    
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         gravedad = rb.gravityScale;
+        jumpSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -112,12 +115,17 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
+        SonidoSalto();
         if (isGrounded && !GameManager.instance.GetGravedad() && !GameManager.instance.GetEscalera())      //Salto con gravedad desactivada
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
 
         else if (isGrounded && GameManager.instance.GetGravedad() && !GameManager.instance.GetEscalera())  //Salto con gravedad activada
             rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
+        
         Particula();
+        
+        SonidoSalto();
+        
     }    
 
     private void ApplyMovement()
@@ -158,4 +166,19 @@ public class PlayerController : MonoBehaviour
             part1.Stop();
         
     }
+    private void SonidoSalto()
+    
+    {
+
+    if(isGrounded)
+    {
+     jumpSound.Play();
+    }
+     else if(isGrounded)
+     {
+         jumpSound.Stop();
+     }
+     
+    }
+
 }
