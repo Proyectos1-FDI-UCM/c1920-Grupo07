@@ -193,6 +193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dist: 3
   velocidad: 2
+  sonido: {fileID: 0}
 --- !u!114 &-6415225959927844828
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,7 +25,6 @@ public class SoundManager : MonoBehaviour
     {                               //  para reproducir un efecto sonoro de muerte.
         audRana.Stop();
         audRanaM.Play();
-
     }
 
     public void deadLobo()

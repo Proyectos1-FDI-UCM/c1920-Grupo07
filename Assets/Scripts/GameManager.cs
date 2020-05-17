@@ -114,11 +114,8 @@ public class GameManager : MonoBehaviour
             tiempo = !tiempo;                            // Invierte tiempo y lo vuelve a invertir después de 5 segundos                       
             InvokeRepeating("Crono", 0f, 1f);
             return true;
-
-
         }
         else return false;
-
     }
 
     public void Crono()

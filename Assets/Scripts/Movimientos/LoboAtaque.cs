@@ -12,11 +12,9 @@ public class LoboAtaque : MonoBehaviour
     public DetectorLobo scriptDet;
     public PlayerController scriptJug;
     public SoundManager sonido;
-
-    private SpriteRenderer lobo;
-
+    
     private Rigidbody2D rb;
-    public Animator anim;
+    private Animator anim;
 
     private bool recuperaVel = false;
     private bool cambioSalto = false;
@@ -38,9 +36,7 @@ public class LoboAtaque : MonoBehaviour
                 inicio = false;
                 sonido.audLobo.Play();
             }
-
         }
-
     }
 
     public void Vuelta()                  //  Método que devuelve al lobo a su posición inicial. 
@@ -51,13 +47,11 @@ public class LoboAtaque : MonoBehaviour
             {
                 anim.Play("LoboVuelta");
                 rb.AddForce(new Vector2(atacar, salto), ForceMode2D.Impulse);
-                Debug.Log("Volviendo");
+                //Debug.Log("Volviendo");
                 temp = tiempoE;
                 Invoke("RestartAnim", 1.0f);
                 inicio = true;
             }
-
-
         }
 
         Invoke("RestartBool", 2f);
@@ -80,14 +74,10 @@ public class LoboAtaque : MonoBehaviour
         Ataque();                               //  dos a la vez.
         Vuelta();
     }
-
-
-
-
+    
     void Start()                                            //  Definimos las variables que utilizaremos en este script.
     {
-        rb = this.GetComponent<Rigidbody2D>();
-        lobo = this.GetComponent<SpriteRenderer>();
+        rb = this.GetComponent<Rigidbody2D>();        
         gravedad = rb.gravityScale;
         anim = GetComponent<Animator>();
         temp = tiempoE;
@@ -95,7 +85,7 @@ public class LoboAtaque : MonoBehaviour
 
     void Update()
     {
-        temp = temp - Time.deltaTime;
+        temp -= Time.deltaTime;
 
         if (GameManager.instance.Tiempo())              //  Se encarga del movimiento del lobo
         {                                               //  teniendo en cuenta el tiempo.
