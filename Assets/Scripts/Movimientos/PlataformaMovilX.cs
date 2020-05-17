@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlataformaMovil : MonoBehaviour
+public class PlataformaMovilX : MonoBehaviour
 {
     [SerializeField] private float dist, velocidad;
 
@@ -18,8 +18,7 @@ public class PlataformaMovil : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        pos = transform.position.y;
-        rb.velocity = new Vector2(velocidad, 0);
+        pos = transform.position.x;
     }
 
     void Update()
@@ -44,12 +43,12 @@ public class PlataformaMovil : MonoBehaviour
             }
         }
 
-        if (transform.position.y > pos + dist)  //Controlar que no se pase de la distancia
+        if (transform.position.x > pos + dist)  // Controlar que no se pase de la distancia
         {
             cambio = true;
         }
 
-        else if (transform.position.y < pos - dist)
+        else if (transform.position.x < pos - dist)
         {
             cambio = false;
         }
@@ -59,9 +58,9 @@ public class PlataformaMovil : MonoBehaviour
         if (!GameManager.instance.Tiempo())
         {
             if (cambio)
-                rb.velocity = new Vector2(0,-velocidad * 3);
+                rb.velocity = new Vector2(-velocidad,0);
             else
-                rb.velocity = new Vector2(0,velocidad * 3);
+                rb.velocity = new Vector2(velocidad,0);
         }
     }
 }

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2095969647535720331}
   - component: {fileID: 2095969647535720330}
   - component: {fileID: 2095969647535720333}
-  - component: {fileID: 2095969647535720332}
   m_Layer: 0
   m_Name: PlataformaMovil
   m_TagString: Untagged
@@ -131,17 +130,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2095969647535720332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2095969647535720335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f63c534304f17684da9b406286f661ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dist: 5
-  velocidad: 5
