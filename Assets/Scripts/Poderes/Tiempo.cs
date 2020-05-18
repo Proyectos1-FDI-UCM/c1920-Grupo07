@@ -21,6 +21,11 @@ public class Tiempo : MonoBehaviour
                 Invoke("CambiarFondo2", GameManager.instance.GetSegs() - 1);
             }
         }
+        if (GameManager.instance.GetFondoTiempo())
+        {
+            CambiarFondo2();
+            GameManager.instance.SetFondoTiempo(false);
+        }
     }
 
     public void CambiarFondo()

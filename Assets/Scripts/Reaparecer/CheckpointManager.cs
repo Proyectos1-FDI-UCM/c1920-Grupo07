@@ -25,7 +25,9 @@ public class CheckpointManager : MonoBehaviour
         }
         else
             GameManager.instance.SetCapsulasRest(GameManager.instance.GetCapsulasG());
-               
+
+        GameManager.instance.MuerteTiempo();
+        GameManager.instance.SetFondoTiempo(true);
         GameManager.instance.GetSegs();
         GameManager.instance.SetReapareceEnemigo(true);
         GameManager.instance.SetReaparecePuerta(true);
@@ -40,6 +42,8 @@ public class CheckpointManager : MonoBehaviour
         GameManager.instance.SetReapareceEnemigo(true);
         GameManager.instance.SetReaparecePuerta(true);
         GameManager.instance.AnulaMejoras();
+        GameManager.instance.MuerteTiempo();
+        GameManager.instance.SetFondoTiempo(true);
         GameManager.instance.SetIngredientes(0);
     }
 }

@@ -63,4 +63,12 @@ public class SoundManager : MonoBehaviour
 
     }
 
+    public void ResetNivel()
+    {
+        CancelInvoke();
+        audTiempo.Stop();
+        audioNivel();
+        
+    }
+
 }

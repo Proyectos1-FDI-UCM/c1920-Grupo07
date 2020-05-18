@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public int monedas = 0;
     public int capsulasG = 6;
 
+    bool fondo = false;
     bool reaparecePuerta = false;
     public bool gravedad = false;
     private bool tiempo = false;
@@ -117,7 +118,23 @@ public class GameManager : MonoBehaviour
         }
         else return false;
     }
-
+    public void SetFondoTiempo(bool _fondo)
+    {
+        fondo = _fondo;
+    }
+    public bool GetFondoTiempo()
+    {
+        return fondo;
+    }
+    public void MuerteTiempo()
+    {
+        CancelInvoke();
+        tiempo = false;
+        segs = GetSegs();
+        theUIManager.RellenaBarraTiempo();
+        soundManager.ResetNivel();
+        
+    }
     public void Crono()
     {
         segs -= 1;

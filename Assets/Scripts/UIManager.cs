@@ -56,6 +56,11 @@ public class UIManager : MonoBehaviour
         }            
     }
 
+    public void RellenaBarraTiempo()
+    {
+        barraTiempo.fillAmount = 1;
+    }
+
     public void UpdateIngredientes(int numero)
     {
         partesIngrdientes[numero].enabled = false;        
