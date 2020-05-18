@@ -24272,7 +24272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.630142, y: 42.26139, z: 23.637482}
+  m_LocalPosition: {x: 31.76445, y: 56.26057, z: 23.637482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1802701348}
@@ -28227,6 +28227,11 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 6dbb64273721d184d9d62224c833fe22, type: 3}
+    - target: {fileID: 3495224249513172383, guid: 138fafbf0bac490409c7a4b749b53b26,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.172
+      objectReference: {fileID: 0}
     - target: {fileID: 3495224249513172352, guid: 138fafbf0bac490409c7a4b749b53b26,
         type: 3}
       propertyPath: m_Name
@@ -29096,7 +29101,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 37.2
+  m_fontSize: 29.35
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -33132,7 +33137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861356723}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.61, y: 43.39, z: -1}
+  m_LocalPosition: {x: 27.78, y: 60.04, z: -1}
   m_LocalScale: {x: 0.4044653, y: 0.3718161, z: 0.34641376}
   m_Children:
   - {fileID: 894261762}
@@ -33231,8 +33236,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a64283fed9e78e643be70c50f74d0b49, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.126
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -72201,7 +72206,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 28.8
+  m_fontSize: 23.65
   m_fontSizeBase: 29
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -72247,7 +72252,7 @@ MonoBehaviour:
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -80867,7 +80872,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 30.85
+  m_fontSize: 27.75
   m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -90003,7 +90008,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881754259}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.625551, y: 39.61057, z: 23.637482}
+  m_LocalPosition: {x: 31.76445, y: 56.26057, z: 23.637482}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1808535607}
