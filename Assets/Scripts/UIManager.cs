@@ -45,13 +45,15 @@ public class UIManager : MonoBehaviour
     {
         if (tiendaT)
         {
-            barraTiempo.fillAmount = seg * 0.14f;
+            if (barraTiempo != null)
+                barraTiempo.fillAmount = seg * 0.14f;
             Debug.Log(barraTiempo.fillAmount);
         }
 
         else
         {
-            barraTiempo.fillAmount = seg * 0.2f;    // 1/seg
+            if(barraTiempo != null)
+                barraTiempo.fillAmount = seg * 0.2f;    // 1/seg
             Debug.Log(barraTiempo.fillAmount);
         }            
     }

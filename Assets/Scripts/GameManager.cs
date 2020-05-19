@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 
     public void ReiniciaMonedas()               //  Pone la cantidad de monedas a 0.
     {
-        monedas = 0;
+        monedas = 59;   //Poner las monedas a 0
         if (theUIManager != null)
             theUIManager.UpdateMonedas(monedas);
     }
@@ -237,7 +237,7 @@ public class GameManager : MonoBehaviour
 
     public void Levelfinished()
     {
-        if (partesIngrediente == 4 && SceneManager.GetActiveScene().name == "Nivel1")
+        if (partesIngrediente == 4 && SceneManager.GetActiveScene().name == "Nivel1 pruebas") //Nivel 1
         {
             ChangeScene("FinDemo"); //Cambiar a "Nivel2"
         }
