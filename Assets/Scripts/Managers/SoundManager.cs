@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
 
     public bool aNivel1, aTiempo;       //  Booleanos que sirven para controlar el audio que suena cuando paras el tiempo.
-    public AudioSource audNivel1, audTiempo, audGravedad, audLobo, audLoboM, audRana, audRanaM, audAve, audAveM, audMenu;   //  Lista de los audios 
+    public AudioSource audNivel1, audTiempo, audGravedad, audLobo, audLoboM, audRana, audRanaM, audAve, audAveM, audMenu,audMoneda;   //  Lista de los audios 
     public GameObject Rana, Lobo, Ave;
 
 
@@ -73,6 +73,10 @@ public class SoundManager : MonoBehaviour
     public void audioMenu()
     {
         audMenu.Play();
+    }
+    public void audioMoneda()
+    {
+        audMoneda.Play();
     }
 
 }
