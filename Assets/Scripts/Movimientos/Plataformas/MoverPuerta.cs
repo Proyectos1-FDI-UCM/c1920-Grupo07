@@ -12,8 +12,9 @@ public class MoverPuerta : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject child;
 
-    private void OnTriggerEnter2D(Collider2D Player)
-    {
+    private void OnTriggerEnter2D(Collider2D Player)            //  Cuando el jugador entra en contacto 
+    {                                                           //  con la flor, se cambia su sprite y se
+                                                                //  inicia el movimiento de la plataforma.
         if (Player.GetComponent<PlayerController>() != null)
         {
             this.GetComponent<SpriteRenderer>().sprite = florRoja1;
@@ -21,7 +22,7 @@ public class MoverPuerta : MonoBehaviour
         }
     }
 
-    void Start()
+    void Start()    //  Declara las variables que se usaran para acceder a la plataforma.
     {
         child = this.transform.GetChild(0).gameObject;
         rb = child.GetComponent<Rigidbody2D>();
@@ -30,7 +31,8 @@ public class MoverPuerta : MonoBehaviour
 
     void Update()
     {
-        if (inicio)
+        if (inicio)     //  Se encarga de realizar el movimiento de la plataforma
+                        //  una vez el jugador haya pasado por la flor.
         {
             if (child.transform.position.y < posIni.y + distancia)            
                 rb.velocity = new Vector2(0, velocidad);

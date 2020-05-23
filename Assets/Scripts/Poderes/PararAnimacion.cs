@@ -11,7 +11,8 @@ public class PararAnimacion : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void Update()
+    private void Update()       //  Detiene las animaciones dependiendo
+                                //  de si se ha parado el tiempo o no.
     {
         if (GameManager.instance.Tiempo())        
             anim.SetBool("Parado", true);

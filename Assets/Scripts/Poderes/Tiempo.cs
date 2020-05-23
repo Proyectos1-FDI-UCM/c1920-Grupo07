@@ -6,34 +6,34 @@ public class Tiempo : MonoBehaviour
 {
     private SpriteRenderer sprite;
 
-    private void Start()
+    private void Start()  
     {
         sprite = GetComponent<SpriteRenderer>();        
     }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown("Fire3"))                //  Cuando presiona Shift o Clic derecho,
         {
-            if (GameManager.instance.CambioTiempo())
-            {
+            if (GameManager.instance.CambioTiempo())     //  si se ha activado el tiempo, reproduce los efectos 
+            {                                            // visuales del tiempo por cuánto sea que dure.
                 CambiarFondo();
                 Invoke("CambiarFondo2", GameManager.instance.GetSegs() - 1);
             }
         }
-        if (GameManager.instance.GetFondoTiempo())
+        if (GameManager.instance.GetFondoTiempo())      //  Anula los efectos visuales cuando se acaba la habilidad.
         {
             CambiarFondo2();
             GameManager.instance.SetFondoTiempo(false);
         }
     }
 
-    public void CambiarFondo()
+    public void CambiarFondo()      //  Trae el fondo del tiempo adelante.
     {
         sprite.sortingOrder = 0;
     }
 
-    public void CambiarFondo2()
+    public void CambiarFondo2()     //  Lleva el fondo del tiempo atrás.
     {
         sprite.sortingOrder = -2;
         CancelInvoke();

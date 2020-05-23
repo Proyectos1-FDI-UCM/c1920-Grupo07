@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ public class LoboAtaque : MonoBehaviour
     public DetectorLobo scriptDet;
     public PlayerController scriptJug;
     public SoundManager sonido;
-    
+
     private Rigidbody2D rb;
     private Animator anim;
 
@@ -74,10 +75,10 @@ public class LoboAtaque : MonoBehaviour
         Ataque();                               //  dos a la vez.
         Vuelta();
     }
-    
+
     void Start()                                            //  Definimos las variables que utilizaremos en este script.
     {
-        rb = this.GetComponent<Rigidbody2D>();        
+        rb = this.GetComponent<Rigidbody2D>();
         gravedad = rb.gravityScale;
         anim = GetComponent<Animator>();
         temp = tiempoE;

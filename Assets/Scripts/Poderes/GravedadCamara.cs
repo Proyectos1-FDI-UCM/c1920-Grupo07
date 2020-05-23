@@ -14,22 +14,22 @@ public class GravedadCamara : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.instance.GetGravedad() == false)
-        miCollider.enabled = true;
+        if(GameManager.instance.GetGravedad() == false)     //  Activa el collider del radio de visión
+        miCollider.enabled = true;                          //  hasta que la gravedad se utilice.
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         GravedadEne gravedadEne = other.gameObject.GetComponent<GravedadEne>();
 
-        if (gravedadEne && GameManager.instance.GetGravedad() == true)
-        {
+        if (gravedadEne && GameManager.instance.GetGravedad() == true)      //  Cambia la gravedad de aquellos GameObjects
+        {                                                                   //  que estén en el radio de visión del jugador.
             gravedadEne.CambiarGravedad();
             Invoke("DesactivarCollider", 0.2f);
         }
     }
 
-    private void DesactivarCollider()
+    private void DesactivarCollider()        //  Desactiva el collider del radio de visión.
     {
         miCollider.enabled = false;
     }

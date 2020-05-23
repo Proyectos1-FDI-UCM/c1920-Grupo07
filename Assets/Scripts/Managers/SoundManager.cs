@@ -6,20 +6,20 @@ public class SoundManager : MonoBehaviour
 {
 
     public bool aNivel1, aTiempo;       //  Booleanos que sirven para controlar el audio que suena cuando paras el tiempo.
-    public AudioSource audNivel1, audTiempo, audGravedad, audLobo, audLoboM, audRana, audRanaM, audAve, audAveM, audMenu,audMoneda;   //  Lista de los audios 
-    public GameObject Rana, Lobo, Ave;
+    public AudioSource audNivel1, audTiempo, audGravedad, audLobo, audLoboM, audRana, audRanaM, audAve, audAveM, audMenu, audMoneda;   //  Lista de los audios 
+    public GameObject Rana, Lobo, Ave;  //  GameObjects que emiten algunos de los sonidos.
 
 
     void Start()
     {
-        if(GameManager.instance != null)
+        if (GameManager.instance != null)
         {
-             GameManager.instance.SetSoundManager(this); //  Comprobar que solo hay un SoundManager.
-             audioNivel();                               //  Iniciar la música del nivel 1.
+            GameManager.instance.SetSoundManager(this); //  Comprobar que solo hay un SoundManager.
+            audioNivel();                               //  Iniciar la música del nivel 1.
         }
-       
-     //  Convierto los audioSources en hijos desde el script para tener ordenados los audios en la jerarquía.
-        if(Rana != null)
+
+        //  Convierto los audioSources en hijos desde el script para tener ordenados los audios en la jerarquía.
+        if (Rana != null)
             audRana.transform.parent = Rana.transform;  //  Convierte el audioSource de la rana en hijo del GameObject Rana.
         if (Lobo != null)
             audLobo.transform.parent = Lobo.transform;  //  Convierte el audioSource del lobo en hijo del GameObject Lobo.
@@ -28,23 +28,23 @@ public class SoundManager : MonoBehaviour
     }
 
     public void deadRana()          //  Método que detiene el croak de la rana  
-    {                               //  para reproducir un efecto sonoro de muerte.
+    {                               //  para reproducir un efecto sonoro de su muerte.
         audRana.Stop();
         audRanaM.Play();
     }
 
-    public void deadLobo()
-    {
+    public void deadLobo()          //  Método que detiene el rugido del lobo
+    {                               //  para reproducir un efecto sonoro de su muerte.                        
         audLobo.Stop();
         audLoboM.Play();
     }
 
-    public void deadAve()
-    {
+    public void deadAve()           //  Método que detiene el aleteo del ave
+    {                               //  para reproducir un efecto sonoro de su muerte.
         audAve.Stop();
         audAveM.Play();
     }
-       
+
 
     public void audioNivel()        //  Método, junto a audioTiempo(), que sirve para
     {                               //  reproducir de manera correcta la música de cuando
@@ -69,20 +69,21 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    public void ResetNivel()
+    public void ResetNivel()    //  Vuelve a activar el audio del nivel 1.
     {
         CancelInvoke();
         audTiempo.Stop();
         audioNivel();
-        
+
     }
-    public void audioMenu()
+    public void audioMenu()     //  Reproduce los sonidos del menú.
     {
         audMenu.Play();
     }
-    public void audioMoneda()
+    public void audioMoneda()   //  Reproduce los sonidos de la moneda.
     {
         audMoneda.Play();
     }
 
 }
+

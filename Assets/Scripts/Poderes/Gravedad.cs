@@ -49,12 +49,13 @@ public class Gravedad : MonoBehaviour
             anim.SetBool("Gravedad", false);
             anim.SetBool("Gravedad2", true);
         }
-       
+
         if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() >= 0 && sonidoUltCap && !GameManager.instance.GetEscalera())  // Se encarga de los efectos sonoros de la gravedad      
-            sonido.audGravedad.Play();      
+            sonido.audGravedad.Play();
         if (GameManager.instance.GetCapsulasRest() == 0)
             sonidoUltCap = false;
         else
             sonidoUltCap = true;
     }
 }
+  
