@@ -22,7 +22,6 @@ public class Portal : MonoBehaviour
             box.enabled = true; 
             this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             anim.SetBool("AparecePortal", true);
-
         }
     }
 
@@ -30,18 +29,7 @@ public class Portal : MonoBehaviour
     {
         if (collision.GetComponent<PlayerController>() != null)
         {
-            GameManager.instance.Levelfinished();
-            //Quitar cuando se acaben las pruebas
-            GameManager.instance.SetCapsulasRest(GameManager.instance.GetCapsulasG() + 1);
-            GameManager.instance.SetGravedad(false);
-            GameManager.instance.GetSegs();
-            GameManager.instance.ReiniciaMonedas();
-            GameManager.instance.SetReapareceEnemigo(true);
-            GameManager.instance.SetReaparecePuerta(true);
-            GameManager.instance.AnulaMejoras();
-            GameManager.instance.MuerteTiempo();
-            GameManager.instance.SetFondoTiempo(true);
-            GameManager.instance.SetIngredientes(0);
+            GameManager.instance.Levelfinished();            
         }
     }
 }
