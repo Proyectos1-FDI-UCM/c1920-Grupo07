@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Constantes
+﻿namespace Constantes
 {
     [System.Serializable]
     public struct Ctes
