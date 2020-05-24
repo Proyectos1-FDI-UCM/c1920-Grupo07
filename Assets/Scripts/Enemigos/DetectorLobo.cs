@@ -13,6 +13,5 @@ public class DetectorLobo : MonoBehaviour
     private void Update()      //  Mira si el booleano está a true para iniciar el movimiento.
     {
         if (iniciar) LoboAtq.Invoke("Repeticion", 0.2f);
-        
     }
 }

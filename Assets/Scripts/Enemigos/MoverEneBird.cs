@@ -1,22 +1,21 @@
 ﻿using UnityEngine;
 
+// Script para el movimiento de los enemigos voladores
 public class MoverEneBird : MonoBehaviour
 {
     public float dist, velocidad;
+    public SoundManager sonido;
 
     private SpriteRenderer ene;
     private Rigidbody2D rb;
     private Vector2 velActual;
-    public SoundManager sonido;
 
     private float pos;
-
-
     private bool cambio;
     private bool recuperaVel = false;
     private bool velAct = false;
 
-    void Start()
+    void Start()     // Inicializamos las variables con sus comopnentes
     {
         ene = GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -26,21 +25,22 @@ public class MoverEneBird : MonoBehaviour
 
     void Update()
     {
+        // Si parar el tiempo se activa
         if (GameManager.instance.Tiempo())
         {
-            if (!velAct)
+            if (!velAct) // Guardamos la velocidad actual del enemigo
             {
                 velActual = rb.velocity;
                 velAct = true;
-                sonido.audAve.Play();
             }
-            rb.velocity = new Vector2(0, 0);
-            recuperaVel = true;
+            rb.gravityScale = 0;    // Para que se quede parado en el aire
+            rb.velocity = Vector2.zero; // Paramos al enemigo
+            recuperaVel = true;     // Bool para activar la vel cuando el tiempo vuelva
         }
-        else if (!GameManager.instance.Tiempo())
+        else
         {
-            velAct = false;
-            if (recuperaVel)
+            velAct = false; // Bool para volver a almacenar la velocidad si se vuelve a parar
+            if (recuperaVel) // Recuperamos la velocidad almacenada
             {
                 rb.velocity = velActual;
                 recuperaVel = false;
@@ -62,7 +62,7 @@ public class MoverEneBird : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!GameManager.instance.Tiempo())
+        if (!GameManager.instance.Tiempo())  // Si el tiempo no esta parado movemos al enemigo
         {
             if (cambio)
                 rb.velocity = new Vector2(-velocidad * 3, 0);

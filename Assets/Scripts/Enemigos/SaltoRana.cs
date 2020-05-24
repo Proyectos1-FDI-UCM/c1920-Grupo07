@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 
+// Script para el movimiento de la rana
 public class SaltoRana : MonoBehaviour
 {
     public float distRight, distLeft, velocidad, salto, tiempoEntreSalto;
+    public SoundManager sonido;
 
     private SpriteRenderer ene;
     private Rigidbody2D rb;
     private Vector2 velActual;
     private Animator anim;
-    public SoundManager sonido;
 
     private float pos, gravedad, temp;
-
     private bool cambio, suelo;
     private bool recuperaVel = false;
     private bool velAct = false;
