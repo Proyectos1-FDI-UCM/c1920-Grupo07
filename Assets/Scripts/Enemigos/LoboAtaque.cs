@@ -7,8 +7,7 @@ public class LoboAtaque : MonoBehaviour
     private float gravedad;
     private Vector2 velActual;
 
-    public DetectorLobo scriptDet;
-    public PlayerController scriptJug;
+    public DetectorLobo scriptDet;    
     public SoundManager sonido;
 
     private Rigidbody2D rb;
