@@ -6,6 +6,7 @@ public class MuerteEne : MonoBehaviour
 {
     private Object DeathParticleRef;
 
+    
     private void Start()   //  Definimos todas las variables que utilizaremos en este script
     {
         DeathParticleRef = Resources.Load("DeathParticle");
@@ -16,8 +17,9 @@ public class MuerteEne : MonoBehaviour
         if (other.gameObject.GetComponent<PlayerController>() != null)
         {
             this.transform.parent.gameObject.SetActive(false);                    // Ponemos que el padre se desactive
-            GameObject DeathParticle = (GameObject)Instantiate(DeathParticleRef); // Instanciamos la particula de muerte del enemigo
+            GameObject DeathParticle = (GameObject)Instantiate(DeathParticleRef); //Instanciamos la particula de muerte del enemigo
             DeathParticle.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            Destroy(DeathParticle, 0.1f);
         }
         
     }    
