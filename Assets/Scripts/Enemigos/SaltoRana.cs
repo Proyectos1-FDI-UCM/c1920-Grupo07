@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
-// Script para el movimiento de la rana
+/* Script para el movimiento de la rana
+ * Ira asociado al prefab del gameObject Rana
+ */
 public class SaltoRana : MonoBehaviour
 {
     public float distRight, distLeft, velocidad, salto, tiempoEntreSalto;

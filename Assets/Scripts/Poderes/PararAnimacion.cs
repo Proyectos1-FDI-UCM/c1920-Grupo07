@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/* Script para avisar al Animator que pare el movimiento de las animaciones
+ * Irá asociado a todo GameObject que tenga animación
+ */
 public class PararAnimacion : MonoBehaviour
 {    
     private Animator anim;

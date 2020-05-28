@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/* Script para ser llamado desde el script SpawnerPlataforma.
+ * Sirve para activar el script RespawnPuerta cuando es llamado.
+ */
 public class ReaparecePlatPuerta : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -12,11 +15,7 @@ public class ReaparecePlatPuerta : MonoBehaviour
     }
     public void Reaparece()
     {
-
-       
         this.gameObject.GetComponent<SpriteRenderer>().sprite = normal;
-
         componentes.Reaparece();
-
     }
 }

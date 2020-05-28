@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
-// Script para el movimiento de los peces
+/* Script para el movimiento de los peces
+ * Irá asociado al prefab del gaeObject Pez
+ */
 public class MoverEneFish : MonoBehaviour
 {
     [SerializeField] private float dist, velocidad;

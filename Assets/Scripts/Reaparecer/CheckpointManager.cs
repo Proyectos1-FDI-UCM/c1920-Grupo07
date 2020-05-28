@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/* Script para encargarse de los procesos de reaparicionel jugador y de los enemigos
+ * Irá asociado al prefab PlayerController
+ */
 public class CheckpointManager : MonoBehaviour
 {
     private Transform ultCheckpoint;
@@ -9,16 +12,17 @@ public class CheckpointManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
             Reaparecer();
     }
-    public void Pasapor(Transform checkpoint)
+
+    public void Pasapor(Transform checkpoint) // Actualiza la posicion del ultimo checkpoint
     {
         ultCheckpoint = checkpoint;
     }
 
-    public void Reaparecer()
+    public void Reaparecer() // Metodo para aparecer desde el ultimo checkpoint con los datos que se tenia
     {
         if (GameManager.instance.GetGravedad())
         {
-            GameManager.instance.SetCapsulasRest(GameManager.instance.GetCapsulasG() + 1); //Poner una cápsula de más poruq econ la sig línea se resta una
+            GameManager.instance.SetCapsulasRest(GameManager.instance.GetCapsulasG() + 1); // Poner una cápsula de más porque con la sig línea se resta una
             GameManager.instance.SetGravedad(false);
         }
         else
@@ -31,7 +35,8 @@ public class CheckpointManager : MonoBehaviour
         GameManager.instance.SetReaparecePuerta(true);
         transform.position = ultCheckpoint.position;
     }
-    public void ReinicioTotal()
+
+    public void ReinicioTotal() // Metodo que puede ser llamado cuando el jugador quiere reiniciar
     {
         GameManager.instance.SetCapsulasRest(GameManager.instance.GetCapsulasG() + 1); //Poner una cápsula de más poruq econ la sig línea se resta una
         GameManager.instance.SetGravedad(false);

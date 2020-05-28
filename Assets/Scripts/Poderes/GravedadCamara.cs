@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+/* Script para cambiar la zona que el jugador ve.
+ * Estara asociado en un gameObject vacio con colisionador hijo de la cámara.
+ * Sirve solo para llamar al intercambio de la gravedad de los enemigos al que la afecta.
+ */
 public class GravedadCamara : MonoBehaviour
 {
     private Collider2D miCollider;

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 
-// Script de la muerte de los enemigos
-// Este script ira en el GameObject de la cabeza donde es hijo del enemigo
+/* Script de la muerte de los enemigos
+ * Este script ira en el GameObject de la cabeza donde es hijo del enemigo
+ */
 public class MuerteEne : MonoBehaviour
 {
     private Object DeathParticleRef;

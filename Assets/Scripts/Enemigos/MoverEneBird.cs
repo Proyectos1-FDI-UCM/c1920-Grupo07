@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
-// Script para el movimiento de los enemigos voladores
+/* Script para el movimiento de los enemigos voladores
+ * Ira asociado a los prefabs Bird y Bat
+ */
 public class MoverEneBird : MonoBehaviour
 {
     public float dist, velocidad;

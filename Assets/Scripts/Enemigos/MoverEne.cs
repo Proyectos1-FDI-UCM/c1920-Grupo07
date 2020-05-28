@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
-// Script del movimiento del enemigo
+/* Script del movimiento del enemigo en tierra
+ * Irá asociado al prefab Dino
+ */
 public class MoverEne : MonoBehaviour
 {
     [SerializeField] private float dist, velocidad;

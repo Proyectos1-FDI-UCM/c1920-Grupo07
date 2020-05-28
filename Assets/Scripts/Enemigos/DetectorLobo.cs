@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/* Script para detectar que el jugador se encuentre cerca del lobo
+ * Irá asociado a un GameObject vacio con un area de colisiones
+ */
 public class DetectorLobo : MonoBehaviour
 {
     public bool iniciar = false;

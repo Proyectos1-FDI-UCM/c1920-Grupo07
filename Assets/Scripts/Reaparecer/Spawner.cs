@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
+/* Script que se utiliza para que los enemigos y las vuelvan a su posicion inicial
+ * Este llama al script ReapareceEne cuando el GameManager lo pida
+ */
 public class Spawner : MonoBehaviour
 {
-    
-    //Se utiliza tambien para que las plataformas
-    //vuelvan a su posicion inicial
     ReapareceEne[] componentes;
     private void Start()
     {
@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour
     {
         if (GameManager.instance.GetReapareceEnemigo())
         {
+            // Reiniciamos a los enemigos / plataformas
             for (int i = 0; i < transform.childCount; i++)
             {
                 Transform child = transform.GetChild(i);
@@ -25,8 +26,8 @@ public class Spawner : MonoBehaviour
                 child.gameObject.SetActive(true);
             }
 
-            foreach (ReapareceEne comp in componentes)
-                comp.Reaparece();
+            foreach (ReapareceEne comp in componentes) comp.Reaparece();
+
             GameManager.instance.SetReapareceEnemigo(false);
         }
     }

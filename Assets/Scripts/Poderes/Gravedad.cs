@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+/* Script para cambiar la gravedad del mapa.
+ * Poder: invierte la gravedad del personaje.
+ * Irá asociado al prefab de PlayerController.
+ */
 public class Gravedad : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -48,7 +52,8 @@ public class Gravedad : MonoBehaviour
             anim.SetBool("Gravedad2", true);
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() >= 0 && sonidoUltCap && !GameManager.instance.GetEscalera())  // Se encarga de los efectos sonoros de la gravedad      
+        // Se encarga de los efectos sonoros de la gravedad      
+        if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() >= 0 && sonidoUltCap && !GameManager.instance.GetEscalera())
             sonido.audGravedad.Play();
         if (GameManager.instance.GetCapsulasRest() == 0)
             sonidoUltCap = false;

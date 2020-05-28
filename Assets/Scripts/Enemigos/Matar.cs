@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-// Script para Matar al jugador
+/* Script para Matar al jugador
+ * Ira asociado a todos los prefabs de los enemigos para que el
+   jugador pueda ser matado al colisionar con estos
+ */
 public class Matar : MonoBehaviour
 {
     // Cuando colisiona

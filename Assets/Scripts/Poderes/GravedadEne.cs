@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+/* Script que activa el poder de la gravedad en los enemigos.
+ * Irá asociado a todos los enemigos que no sean voladores
+   ya que estos no son afectados por la gravedad.
+ * Invierte la gravedad de los enemigos.
+ */
 public class GravedadEne : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -21,7 +26,7 @@ public class GravedadEne : MonoBehaviour
         }
     }
 
-    public void CambiarGravedad()
+    public void CambiarGravedad() // Método para ser llamado mas tarde cuando se encuentre en la zona que le afecte la gravedad
     {
         if(GameManager.instance.GetGravedad() != miGravedad && GameManager.instance.GetGravedad() == true)        //  Vuelve a cambiar su gravedad.
         {

@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+/* Scrip para activar el poder del tiempo.
+ * Poder: para el tiempo de todo el mapa.
+ * Estará asociado en el`prefab PlayerController.
+ */
 public class Tiempo : MonoBehaviour
 {
     private SpriteRenderer sprite;
@@ -13,7 +17,7 @@ public class Tiempo : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire3"))                //  Cuando presiona Shift o Clic derecho,
         {
-            if (GameManager.instance.CambioTiempo())     //  si se ha activado el tiempo, reproduce los efectos 
+            if (GameManager.instance.CambioTiempo())     // si se ha activado el tiempo, reproduce los efectos 
             {                                            // visuales del tiempo por cuánto sea que dure.
                 CambiarFondo();
                 Invoke("CambiarFondo2", GameManager.instance.GetSegs() - 1);

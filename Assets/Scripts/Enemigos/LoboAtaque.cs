@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+/* Movimiento y ataque del lobo 
+ * Ira asociado al prefab gameObject Lobo
+ */
+
 public class LoboAtaque : MonoBehaviour
 {
 
