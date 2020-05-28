@@ -33,7 +33,7 @@ public class Tiempo : MonoBehaviour
 
     public void CambiarFondo2()     //  Lleva el fondo del tiempo atrás.
     {
-        sprite.sortingOrder = -2;
+        sprite.sortingOrder = -10;
         CancelInvoke();
     }  
 }
