@@ -247,6 +247,10 @@ public class GameManager : MonoBehaviour
         {
             ChangeScene("Nivel4");
         }
+        else if (partesIngrediente == 4 && SceneManager.GetActiveScene().name == "Nivel4")
+        {
+            ChangeScene("FinDemo");
+        }
 
         partesIngrediente = 0;
     }

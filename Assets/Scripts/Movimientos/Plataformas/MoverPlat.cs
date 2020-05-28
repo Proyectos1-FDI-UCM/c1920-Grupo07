@@ -54,41 +54,26 @@ public class MoverPlat : MonoBehaviour
         normal = this.GetComponent<SpriteRenderer>().sprite;
 
     }
-    void Update()
+    void Update()       
     {
-        if (GameManager.instance.Tiempo())      //  Detiene el movimiento actual si se 
-        {                                       //  para el tiempo.
-            if (!cambio)
-            {
-                velTiempo = rb.velocity;
-                cambio = true;
-            }
-
-            rb.velocity = Vector2.zero;
+        if (cambio)
+        {
+            rb.velocity = velTiempo;
+            cambio = false;
         }
-
-        else if (!GameManager.instance.Tiempo())            //  Provoca que el movimiento de la plataforma 
-        {                                                   //  sea oscilatorio, siempre que el tiempo no 
-                                                            //  esté detenido.
-            if (cambio)
-            {
-                rb.velocity = velTiempo;
-                cambio = false;
-            }
-            if (!horizontal)
-            {
-                if (child.transform.position.y > posIni.y + distancia)
-                    rb.velocity = new Vector2(0, -velocidad);
-                else if (child.transform.position.y < posIni.y - distancia)
-                    rb.velocity = new Vector2(0, velocidad);
-            }
-            else
-            {
-                if (child.transform.position.x > posIni.x + distancia)
-                    rb.velocity = new Vector2(-velocidad, 0);
-                else if (child.transform.position.x < posIni.x - distancia)
-                    rb.velocity = new Vector2(velocidad, 0);
-            }
+        if (!horizontal)
+        {
+            if (child.transform.position.y > posIni.y + distancia)
+                rb.velocity = new Vector2(0, -velocidad);
+            else if (child.transform.position.y < posIni.y - distancia)
+                rb.velocity = new Vector2(0, velocidad);
+        }
+        else
+        {
+            if (child.transform.position.x > posIni.x + distancia)
+                rb.velocity = new Vector2(-velocidad, 0);
+            else if (child.transform.position.x < posIni.x - distancia)
+                rb.velocity = new Vector2(velocidad, 0);
         }
     }
 }
