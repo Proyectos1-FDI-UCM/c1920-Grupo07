@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/* Script que controla la implementación
+ * de la tienda dentro del juego.
+ */
+
 public class TiendaManager : MonoBehaviour
 {
     [SerializeField] private int mejoraG = 0;
@@ -20,8 +24,8 @@ public class TiendaManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && GameManager.instance.GetTiendaFisica())
-        {
+        if (Input.GetKeyDown(KeyCode.E) && GameManager.instance.GetTiendaFisica()) // La tienda aparece si el jugador
+        {                                                                          // está en contacto y pulsa "E".
             if (tiendaUI.enabled)
                 tiendaUI.enabled = false;
             else
@@ -29,7 +33,7 @@ public class TiendaManager : MonoBehaviour
         }
     }
    
-    public void TiendaGravedad()
+    public void TiendaGravedad()        //  Implementa la mejora de la gravedad.
     {
         if (GameManager.instance.GetMonedas() >= precio && mejoraG != 3)
         {
@@ -45,7 +49,7 @@ public class TiendaManager : MonoBehaviour
         }       
     }
 
-    public void TiendaTiempo()
+    public void TiendaTiempo()          // Implementa la mejora del tiempo.
     {
         if (GameManager.instance.GetMonedas() >= precio && mejoraT != 3)
         {
@@ -61,14 +65,14 @@ public class TiendaManager : MonoBehaviour
         }
     }
 
-    private void CompraG()
+    private void CompraG()      // Permite comprar la mejora de la gravedad.
     {
         int n = mejoraG;
         capsulasLlenasG[n - 1].enabled = true;
         mejoraGrav.text = n.ToString() + "/3";
     }
 
-    private void CompraT()
+    private void CompraT()      // Permite comprar la mejora del tiempo.
     {
         int n = mejoraT;
         capsulasLlenasT[n - 1].enabled = true;

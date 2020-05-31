@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+/* Script que controla las mejoras de
+ * las habilidades y su interfaz.
+ */
+
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Text coinsText;
@@ -12,15 +16,15 @@ public class UIManager : MonoBehaviour
     {
         GameManager.instance.SetUIManager(this);
         UpdateMonedas(0);
-        for (int i = 6; i<= 9; i++) capsulasLlenas[i].enabled = false;    //Para las vacías
+        for (int i = 6; i<= 9; i++) capsulasLlenas[i].enabled = false;    // Funciona para las cápsulas vacías
     }
 
-    public void UpdateMonedas(int monedas) //Actualizar puntos
+    public void UpdateMonedas(int monedas) // Actualizar total de monedas.
     {
         coinsText.text = monedas.ToString();
     }
 
-    public void UpdateGravedad(int capsulasG)
+    public void UpdateGravedad(int capsulasG)  // Actualiza el número de cápsulas de la gravedad.
     {
         int c = capsulasG - 1;
 
@@ -35,11 +39,11 @@ public class UIManager : MonoBehaviour
 
     public void TiendaGravedad()
     {
-        for (int i = 0; i <= 9; i++)        //Hacer 10 vueltas por las dos nuevas que están vacías
+        for (int i = 0; i <= 9; i++)        // Hacer 10 vueltas por las dos nuevas que están vacías.
             capsulasLlenas[i].enabled = true;
     }
 
-    public void UpdateTiempo(int seg, bool tiendaT)
+    public void UpdateTiempo(int seg, bool tiendaT)  // Actualiza los segundos de la habilidad del tiempo.
     {
         if (tiendaT)
         {
@@ -56,12 +60,12 @@ public class UIManager : MonoBehaviour
         }            
     }
 
-    public void RellenaBarraTiempo()
+    public void RellenaBarraTiempo()        //  Rellena la barra del tiempo.
     {
         barraTiempo.fillAmount = 1;
     }
 
-    public void UpdateIngredientes(int numero)
+    public void UpdateIngredientes(int numero)      // Actualiza el número de ingredientes.
     {
         partesIngrdientes[numero].enabled = false;        
     }

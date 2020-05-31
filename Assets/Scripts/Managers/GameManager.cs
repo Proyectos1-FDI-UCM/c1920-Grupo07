@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/* El único GameManager del juego.
+ */
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;

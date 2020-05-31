@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+/* Script que hace que la plataforma se
+ * mueva una vez el jugador se sube encima
+ * y va hacia un punto en concreto.
+ */
+
 public class MovPlataformaAct : MonoBehaviour
 {
     private Rigidbody2D rb;

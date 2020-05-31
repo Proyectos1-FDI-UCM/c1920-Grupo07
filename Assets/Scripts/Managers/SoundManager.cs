@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/* El SoundManager de este juego.
+ */
+
 public class SoundManager : MonoBehaviour
 {
 

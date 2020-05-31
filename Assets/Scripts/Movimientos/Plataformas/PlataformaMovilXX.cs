@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+/* Script que mueve el objeto asociado a él
+ * en un movimiento oscilante sobre el eje X 
+ * en una dirección.
+ */
+
 public class PlataformaMovilXX : MonoBehaviour
 {
     [SerializeField] private float dist, velocidad;

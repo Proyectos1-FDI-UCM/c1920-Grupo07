@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+/* Script que provoca que una plataforma
+ * se mueva sólo cuando el jugador esté 
+ * encima de una flor.
+ */
+
 public class MoverPlat : MonoBehaviour
 {
     public Sprite florRoja;

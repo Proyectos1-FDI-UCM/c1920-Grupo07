@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/* Script encargado del movimiento del jugador.
+ */
+
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;

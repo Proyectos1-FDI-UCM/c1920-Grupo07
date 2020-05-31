@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+/* Script que provoca una rotación
+ * en alguno de los obstáculos.
+ */
+
 public class GirarPlataforma : MonoBehaviour
 {
     [SerializeField] public float rotacion;

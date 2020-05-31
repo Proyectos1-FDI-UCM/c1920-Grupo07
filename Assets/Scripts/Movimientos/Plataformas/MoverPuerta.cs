@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+/* Script que permite abrir una puerta o 
+ * barrera al pasar por encima de una flor.
+ */
+
 public class MoverPuerta : MonoBehaviour
 {
     [SerializeField] private Sprite florRoja1;
