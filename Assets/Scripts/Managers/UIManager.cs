@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         GameManager.instance.SetUIManager(this);
-        UpdateMonedas(0);
+        UpdateMonedas(GameManager.instance.GetMonedas());
         for (int i = 6; i<= 9; i++) capsulasLlenas[i].enabled = false;    // Funciona para las cápsulas vacías
     }
 

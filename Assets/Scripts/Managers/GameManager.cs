@@ -322,7 +322,4 @@ public class GameManager : MonoBehaviour
         tiendaT = false;
         segs = SEGS;
     }
-}
-
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            //
+}                                                                                                                                                                                                           

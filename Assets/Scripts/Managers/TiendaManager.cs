@@ -7,9 +7,11 @@ using UnityEngine.UI;
 
 public class TiendaManager : MonoBehaviour
 {
+    public static TiendaManager instance;
+
     [SerializeField] private int mejoraG = 0;
     [SerializeField] private int mejoraT = 0;
-    [SerializeField] private int precio = 10;
+    [SerializeField] private int precio = 15;
     [SerializeField] private Text mejoraGrav;
     [SerializeField] private Text mejoraTiempo;
     [SerializeField] private Image[] capsulasLlenasG;
@@ -17,6 +19,16 @@ public class TiendaManager : MonoBehaviour
 
     private Canvas tiendaUI;
 
+    void Awake()                                             //  Comprobar que solo hay un TiendaManager.
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+
+        else Destroy(this.gameObject);
+    }
     private void Start()
     {
         tiendaUI = GetComponent<Canvas>();
@@ -31,6 +43,8 @@ public class TiendaManager : MonoBehaviour
             else
                 tiendaUI.enabled = true;
         }
+        else if (!GameManager.instance.GetTiendaFisica() && tiendaUI.enabled)
+            tiendaUI.enabled = false;
     }
    
     public void TiendaGravedad()        //  Implementa la mejora de la gravedad.
@@ -69,11 +83,11 @@ public class TiendaManager : MonoBehaviour
     {
         int n = mejoraG;
         capsulasLlenasG[n - 1].enabled = true;
-        mejoraGrav.text = n.ToString() + "/3";
+        mejoraGrav.text = n.ToString() + "/3";                
     }
 
     private void CompraT()      // Permite comprar la mejora del tiempo.
-    {
+    {       
         int n = mejoraT;
         capsulasLlenasT[n - 1].enabled = true;
         mejoraTiempo.text = n.ToString() + "/3";
