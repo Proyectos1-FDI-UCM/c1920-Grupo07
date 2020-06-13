@@ -98,7 +98,8 @@ public class SaltoRana : MonoBehaviour
                 if (temp <= 0)
                 {
                     rb.AddForce(new Vector2(-velocidad, salto), ForceMode2D.Impulse);
-                    sonido.audRana.Play();
+                    if(sonido.audRana != null)
+                        sonido.audRana.Play();
                     temp = tiempoEntreSalto;
                 }
             }
@@ -106,7 +107,8 @@ public class SaltoRana : MonoBehaviour
                 if (temp <= 0)
                 {
                     rb.AddForce(new Vector2(velocidad, salto), ForceMode2D.Impulse);
-                    sonido.audRana.Play();
+                    if (sonido.audRana != null)
+                        sonido.audRana.Play();
                     temp = tiempoEntreSalto;
                 }
         }

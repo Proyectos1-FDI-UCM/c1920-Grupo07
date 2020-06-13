@@ -17,8 +17,8 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Saliendo del Juego!!!");
         Application.Quit();
     }
-    public void Jugar()   // Para jugar.
+    public void Jugar(string nivel)   // Para jugar.
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene(nivel);
     }
 }
