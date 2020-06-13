@@ -124,9 +124,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, -jumpForce);
 
         Particula();
-
         SonidoSalto();
-
     }
 
     private void ApplyMovement()
@@ -169,14 +167,10 @@ public class PlayerController : MonoBehaviour
     }
     private void SonidoSalto()      //  Se encarga de reproducir el 
     {                               //  efecto sonoro del salto.
-        if (isGrounded)
-        {
+        if (isGrounded)        
             jumpSound.Play();
-        }
-        else if (isGrounded)
-        {
-            jumpSound.Stop();
-        }
+        
+        else if (isGrounded)        
+            jumpSound.Stop();        
     }
-
 }

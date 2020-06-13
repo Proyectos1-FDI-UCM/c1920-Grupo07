@@ -22,7 +22,8 @@ public class Gravedad : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() > 0 && !GameManager.instance.GetEscalera())     //  En caso de estar escalando, cambia la 
+        if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() > 0 && !GameManager.instance.GetEscalera() 
+            && !GameManager.instance.GetTiendaFisica() && !GameManager.instance.GetMenuPausa())                                        //  En caso de estar escalando, cambia la 
         {                                                                                                                              //  gravedad del jugador para que no caiga 
             rb.gravityScale *= -1;                                                                                                     //  y pueda subir por la escalera/liana.
 
@@ -53,7 +54,7 @@ public class Gravedad : MonoBehaviour
         }
 
         // Se encarga de los efectos sonoros de la gravedad      
-        if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() >= 0 && sonidoUltCap && !GameManager.instance.GetEscalera())
+        if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.GetCapsulasRest() >= 0 && sonidoUltCap && !GameManager.instance.GetEscalera() && !GameManager.instance.GetTiendaFisica() && !GameManager.instance.GetMenuPausa())
             sonido.audGravedad.Play();
         if (GameManager.instance.GetCapsulasRest() == 0)
             sonidoUltCap = false;

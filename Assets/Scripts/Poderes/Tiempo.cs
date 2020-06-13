@@ -15,7 +15,7 @@ public class Tiempo : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire3"))                //  Cuando presiona Shift o Clic derecho,
+        if (Input.GetButtonDown("Fire3") && !GameManager.instance.GetTiendaFisica() && !GameManager.instance.GetMenuPausa())      //  Cuando presiona Shift o Clic derecho,
         {
             if (GameManager.instance.CambioTiempo())     // si se ha activado el tiempo, reproduce los efectos 
             {                                            // visuales del tiempo por cuánto sea que dure.

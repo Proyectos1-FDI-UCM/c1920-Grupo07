@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private bool tiempo = false;
     private bool escalera = false;
     private bool reapareceEne = false;
+    private bool menuPausa = false;
     public bool tiendaG = false;
     public bool tiendaT = false;
     public bool tiendaFisica = false;
@@ -314,6 +315,16 @@ public class GameManager : MonoBehaviour
     public void SetTiendaT(bool tiendaT_)                 //  Tiene en cuenta las mejoras del tiempo.
     {
         tiendaT = tiendaT_;
+    }
+
+    public void SetMenuPausa(bool pausa)
+    {
+        menuPausa = pausa;
+    }
+
+    public bool GetMenuPausa()
+    {
+        return menuPausa;
     }
 
     public void AnulaMejoras()                            //  Anula todas las mejoras y pone
